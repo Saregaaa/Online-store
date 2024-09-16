@@ -1,0 +1,41 @@
+{% load static %}
+{% load carts_tags %}
+
+{% user_carts request as carts %}
+
+<div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+  <div class="items-cart-inner">
+    <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
+    <div class="basket-item-count"><span class="count">{{ carts.total_quantity }}</span></div>
+    <div class="total-price-basket"> <span class="lbl">Кошик</span>  </div>
+  </div>
+</a>
+<ul class="dropdown-menu">
+  <li>
+    {% for cart in carts  %}
+      <div class="cart-item product-summary">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="image"> <a href="{% url "index:product_detail" cart.product.slug %}"><img src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}"></a> </div>
+          </div>
+          <div class="col-xs-7">
+            <h3 class="name"><a href="{% url "index:product_detail" cart.product.slug %}">{{ cart.product.name }}</a></h3>
+            <div class="price">${{ cart.product.sell_price }}</div>
+          </div>
+          {% comment %} <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div> {% endcomment %}
+          <div class="col-xs-1 action"> <a href="{% url "carts:cart_remove" cart.id %}"><i class="fa fa-trash"></i></a> </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- /.cart-item -->
+      <div class="clearfix"></div>
+      <hr>
+      <div class="clearfix cart-total">
+        <div class="pull-right"> <span class="text">Sub Total :</span><span class="price">${{ carts.total_price }}</span> </div>
+        <div class="clearfix"></div>
+         <a href="{% url "carts:user_cart" %}" class="btn btn-upper btn-primary btn-block m-t-20">View Cart</a>
+        {% comment %} <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20 btn-check">Checkout</a> </div> {% endcomment %}
+      <!-- /.cart-total--> 
+      
+    </li>
+  </ul>

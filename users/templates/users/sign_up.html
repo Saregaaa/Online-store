@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+      <div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="home.html">Home</a></li>
+				<li class='active'>Login</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+<div class="body-content outer-top-ts">
+	<div class="container">
+    <div class="row">
+<div class="col-md-12"> 
+
+      <div class="sign-in-page">
+			<div class="row">
+				
+
+<!-- create a new account -->
+<div class="col-md-6 col-sm-6 create-new-account">
+	<h4 class="checkout-subtitle">Create a new account</h4>
+	<p class="text title-tag-line">Create your new account.</p>
+	<form class="register-form outer-top-xs" role="form" action="{% url "users:registration" %}" method="post">
+		{% csrf_token %}
+		<div class="form-group">
+	    	<label class="info-title" for="id_email">Email Address <span>*</span></label>
+	    	<input type="email" class="form-control unicase-form-control text-input" id="id_email" 
+			value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
+			name="email">
+			{% if forms.email.errors %}
+			<div class="alert alert-danger alert-dismissible fade show">{{forms.email.errors}}</div>
+			{% endif %}
+	  	</div>
+        <div class="form-group">
+		    <label class="info-title" for="id_username">Username <span>*</span></label>
+		    <input type="text" class="form-control unicase-form-control text-input" id="id_username" 
+			value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+			name="username">
+			{% if forms.username.errors %}
+			<div class="alert alert-danger alert-dismissible fade show">{{forms.username.errors}}</div>
+			{% endif %}
+			
+		</div>
+        <div class="form-group">
+		    <label class="info-title" for="id_phone">Phone Number <span>*</span></label>
+		    <input type="text" class="form-control unicase-form-control text-input" id="id_phone" 
+			value="{% if form.phone.value %}{{ form.phone.value }}{% endif %}"
+			name="phone">
+			{% if forms.phone.errors %}
+			<div class="alert alert-danger alert-dismissible fade show">{{forms.phone.errors}}</div>
+			{% endif %}
+		</div>
+        <div class="form-group">
+		    <label class="info-title" for="id_password1">Password <span>*</span></label>
+		    <input type="password" class="form-control unicase-form-control text-input" id="id_password1" 
+			value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+			name="password1">
+			{% if forms.password1.errors %}
+			<div class="alert alert-danger alert-dismissible fade show">{{forms.password1.errors}}</div>
+			{% endif %}
+		</div>
+         <div class="form-group">
+		    <label class="info-title" for="id_password2">Confirm Password <span>*</span></label>
+		    <input type="password" class="form-control unicase-form-control text-input" id="id_password2" 
+			value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
+			name="password2">
+			{% if forms.password2.errors %}
+			<div class="alert alert-danger alert-dismissible fade show">{{forms.password2.errors}}</div>
+			{% endif %}
+		</div>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+	</form>
+	
+	
+</div>	
+<!-- create a new account -->			</div><!-- /.row -->
+		</div>
+        
+        </div>
+        </div>
+        </div>
+       
+{% endblock content %}

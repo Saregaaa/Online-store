@@ -1,0 +1,906 @@
+[
+{
+    "model": "index.categories",
+    "pk": 10,
+    "fields": {
+        "name": "Ноутбуки, планшети та комп'ютерна периферія",
+        "slug": "noutbuki-plansheti-ta-kompyuterna-periferiya"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 11,
+    "fields": {
+        "name": "Смартфони, ТВ і електроніка",
+        "slug": "smartfoni-tv-i-elektronika"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 12,
+    "fields": {
+        "name": "Побутова техніка",
+        "slug": "pobutova-tehnika"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 13,
+    "fields": {
+        "name": "Одяг і взуття",
+        "slug": "odyag-i-vzuttya"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 14,
+    "fields": {
+        "name": "Напої і продукти",
+        "slug": "napoyi-i-produkti"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 15,
+    "fields": {
+        "name": "Товари для дому",
+        "slug": "tovari-dlya-domu"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 16,
+    "fields": {
+        "name": "Краса та здоров'я",
+        "slug": "krasa-ta-zdorovya"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 17,
+    "fields": {
+        "name": "Офіс, школа, книги",
+        "slug": "ofis-shkola-knigi"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 18,
+    "fields": {
+        "name": "Товари для дітей",
+        "slug": "tovari-dlya-ditej"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 19,
+    "fields": {
+        "name": "Спорт і активний відпочинок",
+        "slug": "sport-i-aktivnij-vidpochinok"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 20,
+    "fields": {
+        "name": "Інструменти та автотовари",
+        "slug": "instrumenti-ta-avtotovari"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 21,
+    "fields": {
+        "name": "Сантехніка та ремонт",
+        "slug": "santehnika-ta-remont"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 22,
+    "fields": {
+        "name": "Дача, сад, город",
+        "slug": "dacha-sad-gorod"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 23,
+    "fields": {
+        "name": "Товари для бізнесу",
+        "slug": "tovari-dlya-biznesu"
+    }
+},
+{
+    "model": "index.categories",
+    "pk": 24,
+    "fields": {
+        "name": "Товари для свята",
+        "slug": "tovari-dlya-svyata"
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 2,
+    "fields": {
+        "name": "Ноутбуки",
+        "slug": "noutbuki",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 3,
+    "fields": {
+        "name": "Комп'ютери, неттопи, моноблоки",
+        "slug": "kompyuteri-nettopi-monobloki",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 4,
+    "fields": {
+        "name": "Монітори",
+        "slug": "monitori",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 5,
+    "fields": {
+        "name": "Планшети",
+        "slug": "plansheti",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 6,
+    "fields": {
+        "name": "Офісна техніка",
+        "slug": "ofisna-tehnika",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 7,
+    "fields": {
+        "name": "Мережеве обладнання",
+        "slug": "merezheve-obladnannya",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 8,
+    "fields": {
+        "name": "Аксесуари для електроніки",
+        "slug": "aksesuari-dlya-elektroniki",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 9,
+    "fields": {
+        "name": "Графічні планшети та аксесуари",
+        "slug": "grafichni-plansheti-ta-aksesuari",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 10,
+    "fields": {
+        "name": "Комп'ютерні комплектуючі",
+        "slug": "kompyuterni-komplektuyuchi",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 11,
+    "fields": {
+        "name": "Програмне забезпечення",
+        "slug": "programne-zabezpechennya",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 12,
+    "fields": {
+        "name": "Серверне обладнання",
+        "slug": "serverne-obladnannya",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 13,
+    "fields": {
+        "name": "Товари для геймерів",
+        "slug": "tovari-dlya-gejmeriv",
+        "category": [
+            10
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 14,
+    "fields": {
+        "name": "Мобільні телефони",
+        "slug": "mobilni-telefoni",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 15,
+    "fields": {
+        "name": "Аксесуари для телевізорів",
+        "slug": "aksesuari-dlya-televizoriv",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 16,
+    "fields": {
+        "name": "Телевізори",
+        "slug": "televizori",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 17,
+    "fields": {
+        "name": "Аксесуари до мобільних телефонів і смартфонів",
+        "slug": "aksesuari-do-mobilnih-telefoniv-i-smartfoniv",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 18,
+    "fields": {
+        "name": "Портативна електроніка",
+        "slug": "portativna-elektronika",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 19,
+    "fields": {
+        "name": "Фото та відео",
+        "slug": "foto-ta-video",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 20,
+    "fields": {
+        "name": "Носимі гаджети",
+        "slug": "nosimi-gadzheti",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 21,
+    "fields": {
+        "name": "Навушники та аксесуари",
+        "slug": "navushniki-ta-aksesuari",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 22,
+    "fields": {
+        "name": "Проекційне обладнання",
+        "slug": "proekcijne-obladnannya",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 23,
+    "fields": {
+        "name": "Аудіотехніка",
+        "slug": "audiotehnika",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 24,
+    "fields": {
+        "name": "Повербанки та зарядні станції",
+        "slug": "poverbanki-ta-zaryadni-stanciyi",
+        "category": [
+            11
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 25,
+    "fields": {
+        "name": "Холодильники",
+        "slug": "holodilniki",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 26,
+    "fields": {
+        "name": "Морозильні камери",
+        "slug": "morozilni-kameri",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 27,
+    "fields": {
+        "name": "Пральні машини",
+        "slug": "pralni-mashini",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 28,
+    "fields": {
+        "name": "Сушильні автомати",
+        "slug": "sushilni-avtomati",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 29,
+    "fields": {
+        "name": "Кухонні плити",
+        "slug": "kuhonni-pliti",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 30,
+    "fields": {
+        "name": "Посудомийні машини",
+        "slug": "posudomijni-mashini",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 31,
+    "fields": {
+        "name": "Професійна техніка",
+        "slug": "profesijna-tehnika",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 32,
+    "fields": {
+        "name": "Аксесуари до ВПТ",
+        "slug": "aksesuari-do-vpt",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 33,
+    "fields": {
+        "name": "Вбудовані духові шафи",
+        "slug": "vbudovani-duhovi-shafi",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 34,
+    "fields": {
+        "name": "Вбудовані варильні поверхні",
+        "slug": "vbudovani-varilni-poverhni",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 35,
+    "fields": {
+        "name": "Кухонні витяжки",
+        "slug": "kuhonni-vityazhki",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 36,
+    "fields": {
+        "name": "Комплекти вбудованої техніки",
+        "slug": "komplekti-vbudovanoyi-tehniki",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 37,
+    "fields": {
+        "name": "Техніка для кухні",
+        "slug": "tehnika-dlya-kuhni",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 38,
+    "fields": {
+        "name": "Товари для догляду за домом і одягом",
+        "slug": "tovari-dlya-doglyadu-za-domom-i-odyagom",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 39,
+    "fields": {
+        "name": "Кліматична техніка",
+        "slug": "klimatichna-tehnika",
+        "category": [
+            12
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 40,
+    "fields": {
+        "name": "Одяг",
+        "slug": "odyag",
+        "category": [
+            13
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 41,
+    "fields": {
+        "name": "Взуття",
+        "slug": "vzuttya",
+        "category": [
+            13
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 42,
+    "fields": {
+        "name": "Сумки та аксесуари",
+        "slug": "sumki-ta-aksesuari",
+        "category": [
+            13
+        ]
+    }
+},
+{
+    "model": "index.subcategory",
+    "pk": 43,
+    "fields": {
+        "name": "Прикраси",
+        "slug": "prikrasi",
+        "category": [
+            13
+        ]
+    }
+},
+{
+    "model": "index.products",
+    "pk": 1,
+    "fields": {
+        "name": "Ноутбук HP Victus Gaming Laptop 15-fa0020ua (8F2S4EA) Mica Silver / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / Пі",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-victus-gaming-laptop-15-fa0020ua-8f2s4ea-mica-silver-intel-core-i5-12450h-ram-16-gb-ssd-512-gb-nvidia-geforce-rtx-3050-4-gb-pi",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 2.29 кг / сірий",
+        "image": "goods_images/368225648.webp",
+        "price": "39999.00",
+        "discount": "15.00",
+        "quantity": 2
+    }
+},
+{
+    "model": "index.products",
+    "pk": 2,
+    "fields": {
+        "name": "Ноутбук ASUS TUF Gaming A15 FA506NC-HN026 (90NR0JF7-M004N0) Graphite Black / 15.6\" IPS Full HD 144 Гц / AMD Ryzen 5 7535HS / RAM 16 ГБ / SSD 1 ТБ / NV",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-tuf-gaming-a15-fa506nc-hn026-90nr0jf7-m004n0-graphite-black-156-ips-full-hd-144-gc-amd-ryzen-5-7535hs-ram-16-gb-ssd-1-tb-nv",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / AMD Ryzen 5 7535HS (3.3 - 4.55 ГГц) / RAM 16 ГБ / SSD 1 ТБ / NVIDIA GeForce RTX 3050, 4 ГБ / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.3 кг / чорний",
+        "image": "goods_images/410768842.webp",
+        "price": "39999.00",
+        "discount": "10.00",
+        "quantity": 0
+    }
+},
+{
+    "model": "index.products",
+    "pk": 3,
+    "fields": {
+        "name": "Ноутбук MSI Thin 15 B12V (B12UC-1884XUA) Cosmos Gray / 15.6\" IPS Full HD 144 Гц / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3",
+        "subcategory": 2,
+        "slug": "noutbuk-msi-thin-15-b12v-b12uc-1884xua-cosmos-gray-156-ips-full-hd-144-gc-intel-core-i5-12450h-ram-16-gb-ssd-512-gb-nvidia-geforce-rtx-3",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 3050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.86 кг / сірий",
+        "image": "goods_images/428053024.webp",
+        "price": "37999.00",
+        "discount": "10.00",
+        "quantity": 3
+    }
+},
+{
+    "model": "index.products",
+    "pk": 4,
+    "fields": {
+        "name": "Ноутбук ASUS TUF Gaming A15 FA506NF-HN019 (90NR0JE7-M004D0) Graphite Black / 15.6\" IPS Full HD 144 Гц / AMD Ryzen 5 7535HS / RAM 16 ГБ / SSD 1 ТБ / NV",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-tuf-gaming-a15-fa506nf-hn019-90nr0je7-m004d0-graphite-black-156-ips-full-hd-144-gc-amd-ryzen-5-7535hs-ram-16-gb-ssd-1-tb-nv",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / AMD Ryzen 5 7535HS (3.3-4.55 ГГц) / RAM 16 ГБ / SSD 1 ТБ / NVIDIA GeForce RTX 2050, 4 ГБ / без ОД / Wi-Fi / Bluetooth / вебкамера / без ОС / 2.3 кг / чорний",
+        "image": "goods_images/410235764.webp",
+        "price": "37999.00",
+        "discount": "15.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 5,
+    "fields": {
+        "name": "Ноутбук Acer Aspire 3 A315-59-51ST (NX.K6SEU.00M) Pure Silver / 15.6\" IPS Full HD / Intel Core i5-1235U / RAM 16 ГБ / SSD 512 ГБ /",
+        "subcategory": 2,
+        "slug": "noutbuk-acer-aspire-3-a315-59-51st-nxk6seu00m-pure-silver-156-ips-full-hd-intel-core-i5-1235u-ram-16-gb-ssd-512-gb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Core i5-1235U (0.9 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / Intel Iris Xe Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.78 кг / сріблястий",
+        "image": "goods_images/365944650.webp",
+        "price": "25999.00",
+        "discount": "20.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 6,
+    "fields": {
+        "name": "Ноутбук HP Pavilion 15-eh1106ua (4A7N2EA) Silver / AMD Ryzen 5 5500U / RAM 16 ГБ / SSD 512 ГБ / Підсвітка клавіатури",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-pavilion-15-eh1106ua-4a7n2ea-silver-amd-ryzen-5-5500u-ram-16-gb-ssd-512-gb-pidsvitka-klaviaturi",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 — 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / AMD Radeon Graphics / без ОД / Wi-Fi / Bluetooth / вебкамера / DOS / 1.75 кг / сріблястий",
+        "image": "goods_images/207625738.webp",
+        "price": "28999.00",
+        "discount": "20.00",
+        "quantity": 2
+    }
+},
+{
+    "model": "index.products",
+    "pk": 7,
+    "fields": {
+        "name": "Ноутбук Lenovo IdeaPad Slim 3 15AMN8 (82XQ009HRA) Arctic Grey / 15.6\" IPS Full HD / AMD Ryzen 5 7520U / RAM 16 ГБ / SSD 512 ГБ",
+        "subcategory": 2,
+        "slug": "noutbuk-lenovo-ideapad-slim-3-15amn8-82xq009hra-arctic-grey-156-ips-full-hd-amd-ryzen-5-7520u-ram-16-gb-ssd-512-gb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 7520U (2.8 - 4.3 ГГц) / RAM 16 ГБ / SSD 512 ГБ / AMD Radeon 610M Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.62 кг / сірий",
+        "image": "goods_images/400396687.webp",
+        "price": "26999.00",
+        "discount": "20.00",
+        "quantity": 2
+    }
+},
+{
+    "model": "index.products",
+    "pk": 8,
+    "fields": {
+        "name": "Ноутбук Lenovo IdeaPad Slim 3 15IAH8 (83ER00AGRA) Arctic Grey / 15.6\" IPS Full HD / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ",
+        "subcategory": 2,
+        "slug": "noutbuk-lenovo-ideapad-slim-3-15iah8-83er00agra-arctic-grey-156-ips-full-hd-intel-core-i5-12450h-ram-16-gb-ssd-512-gb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / Intel UHD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.62 кг / сірий",
+        "image": "goods_images/460705823.webp",
+        "price": "29999.00",
+        "discount": "30.00",
+        "quantity": 3
+    }
+},
+{
+    "model": "index.products",
+    "pk": 9,
+    "fields": {
+        "name": "Ноутбук Lenovo IdeaPad 1 15AMN7 (82VG00KJRA) Cloud Grey / 15.6\" IPS Full HD / AMD Ryzen 3 7320U / RAM 16 ГБ / SSD 1 ТБ",
+        "subcategory": 2,
+        "slug": "noutbuk-lenovo-ideapad-1-15amn7-82vg00kjra-cloud-grey-156-ips-full-hd-amd-ryzen-3-7320u-ram-16-gb-ssd-1-tb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 3 7320U (2.4 - 4.1 ГГц) / RAM 16 ГБ / SSD 1 ТБ / AMD Radeon 610M Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.58 кг / сірий",
+        "image": "goods_images/изображение_2024-09-05_114103855.png",
+        "price": "23999.00",
+        "discount": "10.00",
+        "quantity": 2
+    }
+},
+{
+    "model": "index.products",
+    "pk": 10,
+    "fields": {
+        "name": "Ноутбук Acer Aspire 7 A715-76G-51C4 (NH.QN4EU.003) Charcoal Black / Intel Core i5-12450H / RAM 8 ГБ / SSD 512 ГБ / nVidia GeForce RTX 2050, 4 ГБ / Під",
+        "subcategory": 2,
+        "slug": "noutbuk-acer-aspire-7-a715-76g-51c4-nhqn4eu003-charcoal-black-intel-core-i5-12450h-ram-8-gb-ssd-512-gb-nvidia-geforce-rtx-2050-4-gb-pid",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 8 ГБ / SSD 512 ГБ / nVidia GeForce RTX 2050, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.1 кг / чорний",
+        "image": "goods_images/369688518.webp",
+        "price": "34999.00",
+        "discount": "20.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 11,
+    "fields": {
+        "name": "Ноутбук HP 255 G9 (9M3H1AT) Dark Ash Silver / 15.6\" IPS / AMD Ryzen 5 5625U / RAM 16 ГБ / SSD 512 ГБ",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-255-g9-9m3h1at-dark-ash-silver-156-ips-amd-ryzen-5-5625u-ram-16-gb-ssd-512-gb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5625U (2.3 - 4.3 ГГц) / RAM 16 ГБ / SSD 512 ГБ / AMD Radeon Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.74 кг / чорний",
+        "image": "goods_images/446548003.webp",
+        "price": "22999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 12,
+    "fields": {
+        "name": "Ноутбук Lenovo LOQ 15IAX9 (83GS00B6RA) Luna Grey / 15.6\" IPS Full HD 144 Гц / Intel Core i5-12450HX / RAM 24 ГБ / SSD 1 ТБ / nVidia GeForce RTX 3050,",
+        "subcategory": 2,
+        "slug": "noutbuk-lenovo-loq-15iax9-83gs00b6ra-luna-grey-156-ips-full-hd-144-gc-intel-core-i5-12450hx-ram-24-gb-ssd-1-tb-nvidia-geforce-rtx-3050",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-12450HX (3.1 - 4.4 ГГц) / RAM 24 ГБ / SSD 1 ТБ / nVidia GeForce RTX 3050, 6 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.38 кг / сірий",
+        "image": "goods_images/455774591.webp",
+        "price": "47999.00",
+        "discount": "15.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 13,
+    "fields": {
+        "name": "Ноутбук Acer Nitro 5 AN515-58-539L (NH.QM0EU.00D) Obsidian Black / 15.6\" IPS Full HD 144 Гц / Intel Core i5-12450H / RAM 16 ГБ / SSD 512 ГБ / nVidia G",
+        "subcategory": 2,
+        "slug": "noutbuk-acer-nitro-5-an515-58-539l-nhqm0eu00d-obsidian-black-156-ips-full-hd-144-gc-intel-core-i5-12450h-ram-16-gb-ssd-512-gb-nvidia-g",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-12450H (2.0 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 4060, 8 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.5 кг / чорний",
+        "image": "goods_images/377969945.webp",
+        "price": "57999.00",
+        "discount": "15.00",
+        "quantity": 2
+    }
+},
+{
+    "model": "index.products",
+    "pk": 14,
+    "fields": {
+        "name": "Ноутбук ASUS ROG Strix G16 G614JV-N3106 (90NR0C61-M00CA0) Eclipse Gray / 16\" IPS FHD+ 165 Гц / Intel Core i5-13450HX / RAM 16 ГБ / SSD 512 ГБ / nVidia",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-rog-strix-g16-g614jv-n3106-90nr0c61-m00ca0-eclipse-gray-16-ips-fhd-165-gc-intel-core-i5-13450hx-ram-16-gb-ssd-512-gb-nvidia",
+        "description": "Екран 16\" IPS (1920x1200) FHD+ 165 Гц, матовий / Intel Core i5-13450HX (3.4 - 4.6 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 4060, 8 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.5 кг / сірий",
+        "image": "goods_images/417669233.webp",
+        "price": "67999.00",
+        "discount": "15.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 15,
+    "fields": {
+        "name": "Ноутбук ASUS TUF Gaming F17 FX707VI-LL053 (90NR0FI5-M00350) Mecha Gray / 17.3\" IPS WQHD 240 Гц / Intel Core i7-13620H / RAM 16 ГБ / SSD 1 ТБ / nVidia",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-tuf-gaming-f17-fx707vi-ll053-90nr0fi5-m00350-mecha-gray-173-ips-wqhd-240-gc-intel-core-i7-13620h-ram-16-gb-ssd-1-tb-nvidia",
+        "description": "Екран 17.3\" IPS (2560x1440) WQHD 240 Гц, матовий / Intel Core i7-13620H (2.4 - 4.9 ГГц) / RAM 16 ГБ / SSD 1 ТБ / nVidia GeForce RTX 4070, 8 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.6 кг / сірий",
+        "image": "goods_images/400205392.webp",
+        "price": "82999.00",
+        "discount": "15.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 16,
+    "fields": {
+        "name": "Ноутбук ASUS TUF Gaming A17 FA707NU-HX055 (90NR0EF6-M003D0) Jaeger Gray / 17.3\" IPS Full HD 144 Гц / AMD Ryzen 5 7535HS / RAM 16 ГБ / SSD 512 ГБ / nVi",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-tuf-gaming-a17-fa707nu-hx055-90nr0ef6-m003d0-jaeger-gray-173-ips-full-hd-144-gc-amd-ryzen-5-7535hs-ram-16-gb-ssd-512-gb-nvi",
+        "description": "Екран 17.3\" IPS (1920x1080) Full HD 144 Гц, матовий / AMD Ryzen 5 7535HS (3.3 - 4.55 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce RTX 4050, 6 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.6 кг / сірий",
+        "image": "goods_images/441794541.webp",
+        "price": "55999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 17,
+    "fields": {
+        "name": "Ноутбук HP Victus Gaming 16-r0012ua (9G9J1EA) Performance Blue / 16.1\" IPS Full HD 144 Гц / Intel Core i5-13500H / RAM 32 ГБ / SSD 512 ГБ / nVidia GeF",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-victus-gaming-16-r0012ua-9g9j1ea-performance-blue-161-ips-full-hd-144-gc-intel-core-i5-13500h-ram-32-gb-ssd-512-gb-nvidia-gef",
+        "description": "Екран 16.1\" IPS (1920x1080) Full HD 144 Гц, матовий / Intel Core i5-13500H (3.5 - 4.7 ГГц) / RAM 32 ГБ / SSD 512 ГБ / nVidia GeForce RTX 4060, 8 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 2.33 кг / синій",
+        "image": "goods_images/380708942.webp",
+        "price": "61999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 18,
+    "fields": {
+        "name": "Ноутбук HP 250 G9 (9V1E5AT) Dark Ash Silver / Intel Core i3-1215U / RAM 8 ГБ / SSD 256 ГБ",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-250-g9-9v1e5at-dark-ash-silver-intel-core-i3-1215u-ram-8-gb-ssd-256-gb",
+        "description": "Екран 15.6\" SVA (1920x1080) Full HD, матовий / Intel Core i3-1215U (3.3 - 4.4 ГГц) / RAM 8 ГБ / SSD 256 ГБ / Intel UHD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.74 кг / чорний",
+        "image": "goods_images/446535651.webp",
+        "price": "18999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 19,
+    "fields": {
+        "name": "Ноутбук HP 250 G9 (969R8ET) Gray / 15.6\" SVA Full HD / Intel Celeron N4500 / RAM 8 ГБ / SSD 256 ГБ /",
+        "subcategory": 2,
+        "slug": "noutbuk-hp-250-g9-969r8et-gray-156-sva-full-hd-intel-celeron-n4500-ram-8-gb-ssd-256-gb",
+        "description": "Екран 15.6\" SVA (1920x1080) Full HD, матовий / Intel Celeron N4500 (1.1 - 2.8 ГГц) / RAM 8 ГБ / SSD 256 ГБ / Intel UHD Graphics / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / DOS / 1.74 кг / сірий",
+        "image": "goods_images/446178667.webp",
+        "price": "14999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 20,
+    "fields": {
+        "name": "Ноутбук Lenovo IdeaPad 1 15IGL7 (82V700G2RA) Cloud Grey / 15.6\" IPS Full HD / Intel Celeron N4020 / RAM 8 ГБ / SSD 512 ГБ /",
+        "subcategory": 2,
+        "slug": "noutbuk-lenovo-ideapad-1-15igl7-82v700g2ra-cloud-grey-156-ips-full-hd-intel-celeron-n4020-ram-8-gb-ssd-512-gb",
+        "description": "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Celeron N4020 (1.1 - 2.8 ГГц) / RAM 8 ГБ / SSD 512 ГБ / Intel UHD Graphics 600 / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.54 кг / сірий",
+        "image": "goods_images/447101124.webp",
+        "price": "16999.00",
+        "discount": "10.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 21,
+    "fields": {
+        "name": "Ноутбук ASUS Vivobook 15 X1500EA-BR4350 (90NB0TY6-M04U10) Transparent Silver",
+        "subcategory": 2,
+        "slug": "noutbuk-asus-vivobook-15-x1500ea-br4350-90nb0ty6-m04u10-transparent-silver",
+        "description": "Екран 15.6\" (1366x768) WXGA, матовий / Intel Core i3-1115G4 (3.0 - 4.1 ГГц) / RAM 4 ГБ / SSD 256 ГБ / Intel UHD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.8 кг / сріблястий",
+        "image": "goods_images/463794534.webp",
+        "price": "13499.00",
+        "discount": "5.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 22,
+    "fields": {
+        "name": "Ноутбук Thomson Neo N14 14.1 (MEAN14C8SL128FRW) Silver",
+        "subcategory": 2,
+        "slug": "noutbuk-thomson-neo-n14-141-mean14c8sl128frw-silver",
+        "description": "Екран 14.1\" IPS (1920x1080) Full HD, матовий / Intel Celeron N4120 (1.1 - 2.6 ГГц) / RAM 8 ГБ / SSD 128 ГБ / Intel UHD Graphics 600 / без ОД / Wi-Fi / Bluetooth / веб-камера / DOS / 1.25 кг / сріблястий",
+        "image": "goods_images/447659371.webp",
+        "price": "7999.00",
+        "discount": "5.00",
+        "quantity": 1
+    }
+},
+{
+    "model": "index.products",
+    "pk": 23,
+    "fields": {
+        "name": "Ноутбук Thomson Neo N15 15.6 (MEAN15C6SL256FRW) Silver",
+        "subcategory": 2,
+        "slug": "noutbuk-thomson-neo-n15-156-mean15c6sl256frw-silver",
+        "description": "Екран 15.6\" (1366x768) WXGA, матовий / Intel Celeron J4105 (1.5 - 2.5 ГГц) / RAM 6 ГБ / SSD 256 ГБ / Intel UHD Graphics 600 / без ОД / Wi-Fi / Bluetooth / веб-камера / DOS / 1.6 кг / сріблястий",
+        "image": "",
+        "price": "9999.00",
+        "discount": "5.00",
+        "quantity": 1
+    }
+}
+]
