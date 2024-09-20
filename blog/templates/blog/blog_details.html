@@ -25,7 +25,7 @@
 						</div>
 	<h1>{{ post.title }}</h1>
 	<span class="author">{{ post.autor }}</span>
-	<span class="review">7 Comments</span>
+	<span class="review">Коментарів: {{ comment_count }}</span>
 	<span class="date-time">{{ post.created_at|date:"d.m.Y" }}</span>
 	<p>{{ post.content }}</p>
 	
@@ -38,31 +38,7 @@
 		<a href="" class="hidden-xs"><i class="fa fa-pinterest"></i></a>
 	</div>
 </div>
-{% comment %} <div class="blog-post-author-details wow fadeInUp" style="visibility: hidden; animation-name: none;">
-	<div class="row">
-		<div class="col-md-2 col-xs-12 col-sm-12">
-			<img src="{% static "images/testimonials/member3.png" %}" alt="Responsive image" class="img-circle img-responsive">
-		</div>
-		<div class="col-md-10">
-			<h4>John Doe</h4>
-			<div class="btn-group author-social-network pull-right">
-				<span>Follow me on</span>
-			    <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-			    	<i class="twitter-icon fa fa-twitter"></i>
-			    	<span class="caret"></span>
-			    </button>
-			    <ul class="dropdown-menu" role="menu">
-			    	<li><a href="#"><i class="icon fa fa-facebook"></i>Facebook</a></li>
-			    	<li><a href="#"><i class="icon fa fa-linkedin"></i>Linkedin</a></li>
-			    	<li><a href=""><i class="icon fa fa-pinterest"></i>Pinterst</a></li>
-			    	<li><a href=""><i class="icon fa fa-rss"></i>RSS</a></li>
-			    </ul>
-			</div>
-			<span class="author-job">Web Designer</span>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-		</div>
-	</div>
-</div> {% endcomment %}
+
 					<div class="blog-review wow fadeInUp" style="visibility: hidden; animation-name: none; margin-top: 30px;">
 	<div class="row">
 		<div class="col-md-12 col-xs-12">
@@ -70,24 +46,21 @@
 		</div>
 		{% for comment in comments %}
 		<div class="col-md-2 col-sm-2">
-			<img src="{% static "images/testimonials/member1.png" %}" alt="Responsive image" class="img-rounded img-responsive">
+			<img src="{{ comment.user.avatar.url }}" alt="Responsive image" class="img-rounded img-responsive">
 		</div>
 		<div class="col-md-10 col-sm-10 blog-comments outer-bottom-xs">
 			<div class="blog-comments inner-bottom-xs">
-				<h4>{{ comment.name }}</h4>
+				<h4>{{ comment.user.username }}</h4>
 				<span class="review-action pull-right">
 					{{ comment.created_at|date:"d.m.Y / H:i" }}   
-					{% comment %} <a href=""> Repost</a> / {% endcomment %}
-					{% comment %} <a href=""> Reply</a> {% endcomment %}
+					
 				</span>
 				<p>{{ comment.comment }}</p>
 			</div>
-			{% endfor %}
-			
-			
 		</div>
+		{% endfor %}
 		
-		{% comment %} <div class="post-load-more col-md-12"><a class="btn btn-upper btn-primary" href="#">Load more</a></div> {% endcomment %}
+		
 	</div>
 </div>					<div class="blog-write-comment outer-bottom-xs outer-top-vs">
 	<div class="row">
@@ -109,28 +82,28 @@
 			  </div>
 			</div>
 			<div class="col-md-4">
-				{% comment %} <form class="register-form" role="form"> {% endcomment %}
+				
 					<div class="form-group">
 						<label class="info-title" for="id_email">Email<span>*</span></label>
 						<input type="email" class="form-control unicase-form-control text-input" name="email" id="id_email" placeholder="">
 					</div>
-					{% comment %} </form> {% endcomment %}
+					
 				</div>
 				<div class="col-md-4">
-					{% comment %} <form class="register-form" role="form"> {% endcomment %}
+					
 						<div class="form-group">
 							<label class="info-title" for="id_title">Заголовок <span>*</span></label>
 							<input type="text" class="form-control unicase-form-control text-input" name="title" id="id_title" placeholder="">
 						</div>
-						{% comment %} </form> {% endcomment %}
+						
 					</div>
 					<div class="col-md-12">
-						{% comment %} <form class="register-form" role="form"> {% endcomment %}
+						
 							<div class="form-group">
 								<label class="info-title" for="id_comment">Коментар <span>*</span></label>
 								<textarea class="form-control unicase-form-control" name="comment" id="id_comment"></textarea>
 							</div>
-							{% comment %} </form> {% endcomment %}
+							
 						</div>
 						<div class="col-md-12  m-t-20">
 							<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Залишити коментар</button>
@@ -321,25 +294,7 @@
 	</div>
 	</div>
 </div>
-						<!-- ============================================== PRODUCT TAGS ============================================== -->
-<div class="sidebar-widget product-tag wow fadeInUp">
-	<h3 class="section-title">Product Tags</h3>
-	<div class="sidebar-widget-body outer-top-xs">
-		<div class="tag-list">					
-			<a class="item" title="Phone" href="category.html">Phone</a>
-			<a class="item active" title="Vest" href="category.html">Vest</a>
-			<a class="item" title="Smartphone" href="category.html">Smartphone</a>
-			<a class="item" title="Furniture" href="category.html">Furniture</a>
-			<a class="item" title="T-shirt" href="category.html">T-shirt</a>
-			<a class="item" title="Sweatpants" href="category.html">Sweatpants</a>
-			<a class="item" title="Sneaker" href="category.html">Sneaker</a>
-			<a class="item" title="Toys" href="category.html">Toys</a>
-			<a class="item" title="Rose" href="category.html">Rose</a>
-		</div><!-- /.tag-list -->
-	</div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
-<!-- ============================================== PRODUCT TAGS : END ============================================== -->					</div>
-            
+		
             </div>
             
        </div>

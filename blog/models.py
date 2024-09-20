@@ -26,7 +26,7 @@ class Blog(models.Model):
 
 class BlogComment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
-    # user = models.ForeignKey('users.User', on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=80, verbose_name='Ім`я')
     email = models.EmailField(max_length=254, verbose_name='Email')
     title = models.TextField(max_length=200, verbose_name='Заголовок')

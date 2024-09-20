@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'users',
     'carts',
+    'info'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'dealsdot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'dealsdot',
+        'NAME':'dealsdot_db',
         'USER':'postgres',
         'PASSWORD':'123',
         'HOST':'localhost',
@@ -140,3 +141,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+

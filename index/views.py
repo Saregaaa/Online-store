@@ -3,13 +3,31 @@ from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 
+from blog.models import Blog
 from index.models import Categories, Products, Reviews, Subcategory
 from index.utils import q_search
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
+def home(request, subcategory_slug=None):
+    # Если слаг подкатегории передан, пытаемся получить подкатегорию
+    subcategory = None
+    if subcategory_slug:
+        try:
+            subcategory = Subcategory.objects.get(slug=subcategory_slug)
+        except Subcategory.DoesNotExist:
+            subcategory = None
+
+    # Загружаем все категории с предзагрузкой подкатегорий
+    categories = Categories.objects.prefetch_related('subcategories').all()
+    related_posts = Blog.objects.all()
+
+    context = {
+        'categories': categories,
+        'subcategory': subcategory,
+        'related_posts': related_posts
+    }
+    return render(request, 'home.html', context)
 
 def shop(request, subcategory_slug=None):
     page = request.GET.get('page', 1)

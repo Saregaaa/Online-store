@@ -96,18 +96,18 @@
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
             <form action="{% url "index:search" %}" method="get">
-              {% comment %} <div class="control-group" style="position: relative;">
+               <div class="control-group" style="position: relative;">
                 <input placeholder="Пошук" name="q" class="search-field"> 
-                <button type="submit" class="search-button " style="position: absolute;  top: 50%; transform: translateY(-60%) translateX(260%); border: none; background: none;">
+                {% comment %} <button type="submit" class="search-button " style="position: absolute;  top: 50%; transform: translateY(-60%) translateX(150%); border: none; background: none;">
                 
-                </button>
+                </button> {% endcomment %}
                 <a class="search-button" href="{% url "index:search" %}" ></a> 
-            </div>    {% endcomment %}
+            </div>    
               
-             <div class="control-group">
+             {% comment %} <div class="control-group">
               <input class="search-field" name="q" placeholder="Пошук" />
             <a class="search-button" href="{% url "index:search" %}" ></a> 
-          </div>   
+          </div>    {% endcomment %}
           </form>
           </div>
           <!-- /.search-area --> 
@@ -186,14 +186,14 @@
                               <li><a href="checkout.html">Checkout</a></li>
                               <li><a href="{% url "blog:blog" %}">Blog</a></li>
                               {% comment %} <li><a href="{% url "blog:blog_details" %}">Blog Detail</a></li> {% endcomment %}
-                              <li><a href="contact.html">Contact</a></li>
+                              <li><a href="{% url "info:contact" %}">Contact</a></li>
                               <li><a href="{% url "users:login" %}">Sign In</a></li>
                               <li><a href="{% url "users:registration" %}">Sign Up</a></li>
                               <li><a href="my-wishlist.html">Wishlist</a></li>
-                              <li><a href="terms-conditions.html">Terms and Condition</a></li>
+                              <li><a href="{% url "info:terms" %}">Terms and Condition</a></li>
                               <li><a href="track-orders.html">Track Orders</a></li>
                               <li><a href="product-comparison.html">Product-Comparison</a></li>
-                              <li><a href="faq.html">FAQ</a></li>
+                              <li><a href="{% url "info:faq" %}">FAQ</a></li>
                               <li><a href="404.html">404</a></li>
                               <li><a href="{% url "users:logout" %}">logout</a></li>
                             </ul>

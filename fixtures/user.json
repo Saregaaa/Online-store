@@ -1,0 +1,42 @@
+[
+    {
+        "model": "users.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$vnyJxxl76axsp2b0U4fCdB$af0sCXFM9F/M8hMewJe/CwbHPcPL9bJ6FohijrdAPmI=",
+            "last_login": "2024-09-13T08:29:56.910Z",
+            "is_superuser": true,
+            "username": "root",
+            "first_name": "",
+            "last_name": "",
+            "email": "root@gmail.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2024-09-09T16:02:45Z",
+            "phone_number": null,
+            "avatar": "",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$JenHF2R1em5srC2x2qvWOn$yCC+B0Do3wVQApa+DQxlDd5x20JeliItmTFArm9lwHk=",
+            "last_login": "2024-09-10T07:37:02Z",
+            "is_superuser": false,
+            "username": "Saregaa",
+            "first_name": "",
+            "last_name": "",
+            "email": "Saregaa@ukr.net",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-09-10T07:35:57Z",
+            "phone_number": null,
+            "avatar": "user/Большая_морда.png",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

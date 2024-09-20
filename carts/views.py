@@ -1,61 +1,67 @@
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
+from carts.forms import OrderForm
 from carts.utils import get_user_cart
+from django.contrib.auth.decorators import login_required
 
 
-from carts.models import Cart
+from carts.models import Cart, Order
 from index.models import Products
 
 
 
-def cart_add(request, product_slug):
-    product = get_object_or_404(Products, slug=product_slug)
 
-    if request.user.is_authenticated:
-        # Корзина для авторизованных пользователей
-        cart, created = Cart.objects.get_or_create(user=request.user, product=product)
-        cart.quantity += 1
-        cart.save()
-    else:
-        # Корзина для анонимных пользователей
-        if not request.session.session_key:
-            request.session.create()  # Создаем новую сессию, если ее нет
-
-        cart, created = Cart.objects.get_or_create(session_key=request.session.session_key, product=product)
-        cart.quantity += 1
-        cart.save()
-
-    return redirect(request.META.get('HTTP_REFERER', 'index:home'))
 
 # def cart_add(request, product_slug):
-    
-#     product = Products.objects.get(slug=product_slug)
+#     product = get_object_or_404(Products, slug=product_slug)
 
 #     if request.user.is_authenticated:
-#         carts = Cart.objects.filter(user=request.user, product=product)
-
-#         if carts.exists():
-#             cart = carts.first()
-#             if cart:
-#                 cart.quantity += 1
-#                 cart.save()
-#         else:
-#             Cart.objects.create(user=request.user, product=product, quantity=1)
-
+#         # Корзина для авторизованных пользователей
+#         cart, created = Cart.objects.get_or_create(user=request.user, product=product)
+#         cart.quantity += 1
+#         cart.save()
 #     else:
-#         carts = Cart.objects.filter(
-#             session_key=request.session.session_key, product=product)
+#         # Корзина для анонимных пользователей
+#         if not request.session.session_key:
+#             request.session.create()  # Создаем новую сессию, если ее нет
 
-#         if carts.exists():
-#             cart = carts.first()
-#             if cart:
-#                 cart.quantity += 1
-#                 cart.save()
-#         else:
-#             Cart.objects.create(
-#                 session_key=request.session.session_key, product=product, quantity=1)
+#         cart, created = Cart.objects.get_or_create(session_key=request.session.session_key, product=product)
+#         cart.quantity += 1
+#         cart.save()
 
-#     return redirect(request.META['HTTP_REFERER'])
+#     return redirect(request.META.get('HTTP_REFERER', 'index:home'))
+
+
+def cart_add(request, product_slug):
+    
+    product = Products.objects.get(slug=product_slug)
+
+    if request.user.is_authenticated:
+        carts = Cart.objects.filter(user=request.user, product=product)
+
+        if carts.exists():
+            cart = carts.first()
+            if cart:
+                cart.quantity += 1
+                cart.save()
+        else:
+            Cart.objects.create(user=request.user, product=product, quantity=1)
+
+    else:
+        carts = Cart.objects.filter(
+            session_key=request.session.session_key, product=product)
+
+        if carts.exists():
+            cart = carts.first()
+            if cart:
+                cart.quantity += 1
+                cart.save()
+        else:
+            Cart.objects.create(
+                session_key=request.session.session_key, product=product, quantity=1)
+
+    return redirect(request.META['HTTP_REFERER'])
             
             
 
@@ -92,3 +98,40 @@ def users_cart(request):
         'carts': carts,   
     }
     return render(request, 'carts/user_cart.html', context)
+
+@login_required
+def create_order(request):
+    # Получаем корзину текущего пользователя
+    cart_items = get_user_cart(request)
+
+    if not cart_items.exists():
+        return redirect('carts:user_cart')  # Перенаправляем на страницу корзины, если корзина пуста
+
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            # Создаем заказ
+            order = Order.objects.create(
+                user=request.user,
+                sity=form.cleaned_data['sity'],
+                address=form.cleaned_data['address'],
+                postal_code=form.cleaned_data['postal_code']
+            )
+
+            # Связываем все элементы корзины с этим заказом
+            for item in cart_items:
+                order.cart.add(item)  # Сохраняем товары в заказ
+
+            # Очищаем корзину
+            cart_items.delete()
+
+            return JsonResponse({'success': True, 'message': 'Ваше замовлення було успішно створено!'})
+
+    else:
+        form = OrderForm()
+
+    context = {
+        'form': form,
+        'cart_items': cart_items,  # Отображение корзины пользователя
+    }
+    return render(request, 'orders/create_order.html', context)

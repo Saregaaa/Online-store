@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from carts.models import Cart
+from carts.models import Cart, Order
 
 
 # admin.site.register(Cart)
@@ -19,4 +19,6 @@ class CartAdmin(admin.ModelAdmin):
     #         return obj.user.username
     #     return "Anonymous"
     # get_username.short_description = 'User'
+
+admin.site.register(Order)
 

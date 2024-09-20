@@ -36,3 +36,12 @@
 
 }
 
+
+.blog-post-image .image img {
+    width: 100%;
+    height: 200px; /* или любое значение, которое вам подходит */
+    object-fit: contain;
+}
+
+
+

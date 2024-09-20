@@ -132,30 +132,19 @@
 		<tbody>
 				<tr>
 					<td>
+						{% comment %} <form action="{% url "index:user_cart" %}"></form> {% endcomment %}
 						<div class="form-group">
-							<label class="info-title control-label">Country <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker">
-								<option>--Select options--</option>
-								<option>India</option>
-								<option>SriLanka</option>
-								<option>united kingdom</option>
-								<option>saudi arabia</option>
-								<option>united arab emirates</option>
-							</select>
+							<label class="info-title control-label">Місто <span>*</span></label>
+							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
+							
 						</div>
 						<div class="form-group">
-							<label class="info-title control-label">State/Province <span>*</span></label>
-							<select class="form-control unicase-form-control selectpicker">
-								<option>--Select options--</option>
-								<option>TamilNadu</option>
-								<option>Kerala</option>
-								<option>Andhra Pradesh</option>
-								<option>Karnataka</option>
-								<option>Madhya Pradesh</option>
-							</select>
+							<label class="info-title control-label">Адреса <span>*</span></label>
+							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
+							
 						</div>
 						<div class="form-group">
-							<label class="info-title control-label">Zip/Postal Code</label>
+							<label class="info-title control-label">Поштовий код</label>
 							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
 						</div>
 						<div class="pull-right">
