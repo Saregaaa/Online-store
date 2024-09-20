@@ -1,36 +1,16 @@
 from django.http import JsonResponse
-from django.shortcuts import redirect, render
-from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
+from django.template.loader import render_to_string
 from carts.forms import OrderForm
-from carts.utils import get_user_cart
+from carts.utils import get_user_carts
 from django.contrib.auth.decorators import login_required
 
-
+from django.views.decorators.http import require_POST
 from carts.models import Cart, Order
 from index.models import Products
 
 
 
-
-
-# def cart_add(request, product_slug):
-#     product = get_object_or_404(Products, slug=product_slug)
-
-#     if request.user.is_authenticated:
-#         # Корзина для авторизованных пользователей
-#         cart, created = Cart.objects.get_or_create(user=request.user, product=product)
-#         cart.quantity += 1
-#         cart.save()
-#     else:
-#         # Корзина для анонимных пользователей
-#         if not request.session.session_key:
-#             request.session.create()  # Создаем новую сессию, если ее нет
-
-#         cart, created = Cart.objects.get_or_create(session_key=request.session.session_key, product=product)
-#         cart.quantity += 1
-#         cart.save()
-
-#     return redirect(request.META.get('HTTP_REFERER', 'index:home'))
 
 
 def cart_add(request, product_slug):
@@ -60,6 +40,8 @@ def cart_add(request, product_slug):
         else:
             Cart.objects.create(
                 session_key=request.session.session_key, product=product, quantity=1)
+    
+    print(f"Session Key: {request.session.session_key}") # Проверка на сессию
 
     return redirect(request.META['HTTP_REFERER'])
             
@@ -91,8 +73,8 @@ def cart_update_quantity(request, cart_id, action):
    
 
 def users_cart(request):
-    carts = get_user_cart(request)  # Получаем корзину
-    
+    carts = get_user_carts(request)  # Получаем корзину
+    print(f"Anonymous user, session key: {request.session.session_key}, carts count: {carts.count()}")  # Для отладки
 
     context = {
         'carts': carts,   
@@ -102,7 +84,7 @@ def users_cart(request):
 @login_required
 def create_order(request):
     # Получаем корзину текущего пользователя
-    cart_items = get_user_cart(request)
+    cart_items = get_user_carts(request)
 
     if not cart_items.exists():
         return redirect('carts:user_cart')  # Перенаправляем на страницу корзины, если корзина пуста

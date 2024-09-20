@@ -76,7 +76,7 @@ def sign_up(request):
 def logout(request):
     messages.success(request, f"{request.user.username}, Ви вийшли з аккаунту")
     auth.logout(request)
-    return redirect(reverse('users:sign_in'))
+    return redirect(reverse('users:login'))
     
 
 #     context = {

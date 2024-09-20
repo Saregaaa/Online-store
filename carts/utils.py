@@ -1,21 +1,40 @@
 from carts.models import Cart
 
-
-def get_user_cart(request):
-    if request.user.is_authenticated:
-        # Если пользователь авторизован, возвращаем корзину по пользователю
-        return Cart.objects.filter(user=request.user)
-    else:
-        # Если нет сессии, создаем новую
-        if not request.session.session_key:
-            request.session.create()
-        # Возвращаем корзину по ключу сессии
-        return Cart.objects.filter(session_key=request.session.session_key)
-
-# def get_user_cart(request):
+# def get_user_carts(request):
 #     if request.user.is_authenticated:
 #         return Cart.objects.filter(user=request.user)
     
 #     if not request.session.session_key:
 #         request.session.create()
-#         return Cart.objects.filter(session_key=request.session.session_key)
+#     return Cart.objects.filter(session_key=request.session.session_key)
+
+# def get_user_carts(request):
+#     if request.user.is_authenticated:
+#         carts = Cart.objects.filter(user=request.user)
+#         print(f"Authenticated user, carts count: {carts.count()}")
+#         return carts
+    
+#     if not request.session.session_key:
+#         request.session.create()
+
+#     carts = Cart.objects.filter(session_key=request.session.session_key)
+#     print(f"Anonymous user, session key: {request.session.session_key}, carts count: {carts.count()}")
+#     return carts
+
+def get_user_carts(request):
+    if request.user.is_authenticated:
+        carts = Cart.objects.filter(user=request.user)
+    else:
+        # Создаем session_key, если он отсутствует
+        if not request.session.session_key:
+            request.session.create()
+
+        # Убедись, что session_key корректен
+        session_key = request.session.session_key
+        print(f"Session Key: {session_key}")  # Для отладки
+        
+        # Получаем корзину по session_key
+        carts = Cart.objects.filter(session_key=session_key)
+
+    return carts
+

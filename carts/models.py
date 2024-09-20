@@ -35,7 +35,9 @@ class Cart(models.Model):
         
 
     def __str__(self):
-        return f"Корзина {self.user.username} | Товар {self.product.name} | Кількість - {self.quantity}"
+        if self.user:
+            return f"Cart for {self.user.username} with {self.product.name}"
+        return f"Cart for session {self.session_key} with {self.product.name}"
 
 
 class Order(models.Model):

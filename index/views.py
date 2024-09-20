@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 
 from blog.models import Blog
+
 from index.models import Categories, Products, Reviews, Subcategory
 from index.utils import q_search
 
@@ -67,6 +68,7 @@ def shop(request, subcategory_slug=None):
     paginator = Paginator(products, 6)
     current_page = paginator.page(int(page))
 
+
     context = {
         'categories': categories,
         'products': current_page,
@@ -74,7 +76,8 @@ def shop(request, subcategory_slug=None):
         'slug_url': subcategory_slug,
         'on_sale': on_sale,
         'order_by': order_by,
-        'query': query
+        'query': query,
+        
         
     }
     return render(request, 'shop.html', context)
