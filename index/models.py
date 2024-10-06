@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 
 from users.models import User
 # from django.urls import reverse
@@ -47,6 +48,26 @@ class Products(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукти'
         ordering = ("id",)
+
+    def average_rating(self):
+        reviews = self.reviews.all()  # Все отзывы о продукте
+        total_reviews = reviews.count()
+        
+        if total_reviews > 0:
+            # Вычисление среднего рейтинга по трём категориям
+            total_quality = sum([review.quality_rating for review in reviews])
+            total_price = sum([review.price_rating for review in reviews])
+            total_value = sum([review.value_rating for review in reviews])
+            
+            # Средний рейтинг (можно округлить до одного десятичного знака)
+            avg_quality = total_quality / total_reviews
+            avg_price = total_price / total_reviews
+            avg_value = total_value / total_reviews
+            
+            # Общий средний рейтинг
+            avg_rating = (avg_quality + avg_price + avg_value) / 3
+            return round(avg_rating, 1)  # Округляем до одного знака после запятой
+        return 0  # Если отзывов нет
 
     def __str__(self):
         return f'{self.name} Кількість - {self.quantity}'

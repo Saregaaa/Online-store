@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from django.template.loader import render_to_string
@@ -95,19 +96,22 @@ def create_order(request):
             # Создаем заказ
             order = Order.objects.create(
                 user=request.user,
-                sity=form.cleaned_data['sity'],
+                city=form.cleaned_data['city'],
                 address=form.cleaned_data['address'],
                 postal_code=form.cleaned_data['postal_code']
             )
 
             # Связываем все элементы корзины с этим заказом
             for item in cart_items:
-                order.cart.add(item)  # Сохраняем товары в заказ
+                order.carts.add(item)  # Сохраняем корзины в ManyToManyField
 
             # Очищаем корзину
             cart_items.delete()
+            
+            messages.success(request, 'Ваше замовлення було успішно створено!')
 
-            return JsonResponse({'success': True, 'message': 'Ваше замовлення було успішно створено!'})
+            return redirect('carts:user_cart')
+            # return JsonResponse({'success': True, 'message': 'Ваше замовлення було успішно створено!'})
 
     else:
         form = OrderForm()
@@ -117,3 +121,50 @@ def create_order(request):
         'cart_items': cart_items,  # Отображение корзины пользователя
     }
     return render(request, 'orders/create_order.html', context)
+
+# import logging
+
+# logger = logging.getLogger(__name__)
+
+# @login_required
+# def create_order(request):
+#     cart_items = get_user_carts(request)
+
+#     if not cart_items.exists():
+#         logger.warning(f"User {request.user.username} tried to create an order with an empty cart.")
+#         return redirect('carts:user_cart')  # Перенаправляем на страницу корзины, если корзина пуста
+
+#     if request.method == 'POST':
+#         form = OrderForm(request.POST)
+#         if form.is_valid():
+#             # Создаем заказ
+#             logger.info(f"Creating order for user {request.user.username}")
+#             order = Order.objects.create(
+#                 user=request.user,
+#                 city=form.cleaned_data['city'],
+#                 address=form.cleaned_data['address'],
+#                 postal_code=form.cleaned_data['postal_code']
+#             )
+
+#             # Связываем все элементы корзины с этим заказом
+#             for item in cart_items:
+#                 logger.info(f"Adding cart item {item.product.name} to order {order.id}")
+#                 order.carts.add(item)
+
+#             # Очищаем корзину
+#             cart_items.delete()
+#             logger.info(f"Cart cleared for user {request.user.username}")
+
+#             return JsonResponse({'success': True, 'message': 'Ваше замовлення було успішно створено!'})
+#         else:
+#             logger.error(f"Order form validation failed: {form.errors}")
+
+#     else:
+#         form = OrderForm()
+
+#     context = {
+#         'form': form,
+#         'cart_items': cart_items,  # Отображение корзины пользователя
+#     }
+#     return render(request, 'orders/create_order.html', context)
+

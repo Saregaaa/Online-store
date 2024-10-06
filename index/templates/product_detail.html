@@ -6,9 +6,9 @@
     <div class="container">
           <div class="breadcrumb-inner">
               <ul class="list-inline list-unstyled">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Clothing</a></li>
-                  <li class='active'>Timberland Men’s Thorton Waterproof Boots</li>
+                  <li><a href="{% url "index:home" %}">Головна</a></li>
+                  <li><a href="{% url "index:shop" %}">Магазин</a></li>
+                  <li class='active'>{{ product.name|truncatechars:30 }}</li>
               </ul>
           </div><!-- /.breadcrumb-inner -->
       </div><!-- /.container -->
@@ -32,53 +32,14 @@
                   </a>
               </div><!-- /.single-product-gallery-item -->
   
-              {% comment %} <div class="single-product-gallery-item" id="slide2">
-                  <a data-lightbox="image-1" data-title="Gallery" href="assets/images/products/p2.jpg">
-                      <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="assets/images/products/p2.jpg" />
-                  </a>
-              </div><!-- /.single-product-gallery-item -->
-  
-              <div class="single-product-gallery-item" id="slide3">
-                  <a data-lightbox="image-1" data-title="Gallery" href="assets/images/products/p3.jpg">
-                      <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="assets/images/products/p3.jpg" />
-                  </a>
-              </div><!-- /.single-product-gallery-item -->
-  
-               {% endcomment %}
-  
           </div><!-- /.single-product-slider -->
   
   
-          {% comment %} <div class="single-product-gallery-thumbs gallery-thumbs">
-  
-              <div id="owl-single-product-thumbnails">
-                  <div class="item">
-                      <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
-                          <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="assets/images/products/p4.jpg" />
-                      </a>
-                  </div>
-  
-                  <div class="item">
-                      <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
-                          <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="assets/images/products/p2.jpg"/>
-                      </a>
-                  </div>
-                  <div class="item">
-  
-                      <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
-                          <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="assets/images/products/p3.jpg" />
-                      </a>
-                  </div>
-                  
-              </div><!-- /#owl-single-product-thumbnails -->
-  
-              
-  
-          </div><!-- /.gallery-thumbs --> {% endcomment %}
+         
   
       </div><!-- /.single-product-gallery -->
   </div><!-- /.gallery-holder -->        			
-                      <div class='col-sm-7 col-md-5 product-info-block'>
+                      <div class='col-sm-7 col-md-7 product-info-block'>
                           <div class="product-info">
                               <h1 class="name">{{ product.name }}</h1>
                               
@@ -90,7 +51,7 @@
                                       </div>
                                       <div class="pull-left">
                                           <div class="reviews">
-                                              <a href="#" class="lnk">(13 Reviews)</a>
+                                              <a href="#" class="lnk">Відгуків: {{product.reviews.count}}</a>
                                           </div>
                                       </div>
                                       </div>
@@ -133,19 +94,7 @@
                                           </div>
                                       </div>
   
-                                      <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
-                                          <div class="favorite-button">
-                                              <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                  <i class="fa fa-heart"></i>
-                                              </a>
-                                              <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
-                                                 <i class="fa fa-signal"></i>
-                                              </a>
-                                              <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
-                                                  <i class="fa fa-envelope"></i>
-                                              </a>
-                                          </div>
-                                      </div>
+                                      
   
                                   </div><!-- /.row -->
                               </div><!-- /.price-container -->
@@ -185,11 +134,7 @@
                           </div><!-- /.product-info -->
                       </div><!-- /.col-sm-7 -->
                       <div class="col-lg-3 col-sm-12 col-md-3">
-                      <div class="store-details">
-                       <img alt="" src="assets/images/brands/store.png"/>
-                      <h2><a href="#">Amazon.com</a></h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                      </div>
+                     
                       </div>
                   </div><!-- /.row -->
                   </div>
@@ -199,9 +144,9 @@
                           <div class="col-sm-3">
                               <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                   <li class="active"><a data-toggle="tab" href="#description">Опис</a></li>
-                                  <li><a data-toggle="tab" href="#vendor">Продавець</a></li>
+                                  
                                   <li><a data-toggle="tab" href="#review">Відгуки</a></li>
-                                  <li><a data-toggle="tab" href="#tags">Теги</a></li>
+                                  
                                   <li><a data-toggle="tab" href="#offers">Більше пропозицій</a></li>
                               </ul><!-- /.nav-tabs #product-tabs -->
                           </div>
@@ -214,15 +159,7 @@
                                           <p class="text">{{ product.description }}</p>
                                       </div>	
                                   </div><!-- /.tab-pane -->
-  <div id="vendor" class="tab-pane">
-                                      <div class="product-tab">
-                                                                              <h3>Amazon</h3>
-                                          <p class="text">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio officiis at accusantium ducimus excepturi cumque ad commodi libero nihil rem voluptatibus veniam ipsa ullam esse quia quae fuga, quidem iusto.<br></br>
-  
-  <a href="#">More Products from Amazon</a></p>
-                                      </div>	
-                                  </div>
+ 
                                   <div id="review" class="tab-pane">
                                       <div class="product-tab">
                                              
@@ -336,33 +273,7 @@
                                       </div><!-- /.product-tab -->
                                   </div><!-- /.tab-pane -->
   
-                                  <div id="tags" class="tab-pane">
-                                      <div class="product-tag">
-                                          
-                                          <h4 class="title">Product Tags</h4>
-                                          <form class="form-inline form-cnt">
-                                              <div class="form-container">
-                                      
-                                                  <div class="form-group">
-                                                      <label for="exampleInputTag">Add Your Tags: </label>
-                                                      <input type="email" id="exampleInputTag" class="form-control txt">
-                                                      
-  
-                                                  </div>
-  
-                                                  <button class="btn btn-upper btn-primary" type="submit">ADD TAGS</button>
-                                              </div><!-- /.form-container -->
-                                          </form><!-- /.form-cnt -->
-  
-                                          <form class="form-inline form-cnt">
-                                              <div class="form-group">
-                                                  <label>&nbsp;</label>
-                                                  <span class="text col-md-offset-3">Use spaces to separate tags. Use single quotes (') for phrases.</span>
-                                              </div>
-                                          </form><!-- /.form-cnt -->
-  
-                                      </div><!-- /.product-tab -->
-                                  </div><!-- /.tab-pane -->
+                                  
                                   <div id="offers" class="tab-pane">
                                       <div class="product-tab">
                                           <p class="text">На жаль, більше пропозицій немає</p>

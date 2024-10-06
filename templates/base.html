@@ -44,16 +44,21 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-            <li><a href="{% url "carts:user_cart" %}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
-            <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-            <li><a href="sign-in.html"><i class="icon fa fa-lock"></i>Become a Vendor</a></li>
+            {% comment %} <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li> {% endcomment %}
+            {% comment %} <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li> {% endcomment %}
+            <li><a href="{% url "carts:user_cart" %}"><i class="icon fa fa-shopping-cart"></i>Кошик</a></li>
+            {% comment %} <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li> {% endcomment %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url "users:logout" %}"><i class="icon fa fa-lock"></i>Вийти</a></li>
+            {% else %}
+            <li><a href="{% url "users:login" %}"><i class="icon fa fa-lock"></i>Увійти</a></li>
+            <li><a href="{% url "users:registration" %}"><i class="icon fa fa-lock"></i>Зареєструватись</a></li>
+            {% endif %}
           </ul>
         </div>
         <!-- /.cnt-account -->
         
-        <div class="cnt-block">
+        {% comment %} <div class="cnt-block">
           <ul class="list-unstyled list-inline">
             <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -71,7 +76,7 @@
             </li>
           </ul>
           <!-- /.list-unstyled --> 
-        </div>
+        </div> {% endcomment %}
         <!-- /.cnt-cart -->
         <div class="clearfix"></div>
       </div>
@@ -95,21 +100,15 @@
           <!-- /.contact-row --> 
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
-            <form action="{% url "index:search" %}" method="get">
-               <div class="control-group" style="position: relative;">
-                <input placeholder="Пошук" name="q" class="search-field"> 
-                {% comment %} <button type="submit" class="search-button " style="position: absolute;  top: 50%; transform: translateY(-60%) translateX(150%); border: none; background: none;">
-                
-                </button> {% endcomment %}
-                <a class="search-button" href="{% url "index:search" %}" ></a> 
-            </div>    
-              
-             {% comment %} <div class="control-group">
-              <input class="search-field" name="q" placeholder="Пошук" />
-            <a class="search-button" href="{% url "index:search" %}" ></a> 
-          </div>    {% endcomment %}
-          </form>
-          </div>
+            <form id="search-form" action="{% url "index:search" %}" method="get">
+                <div class="control-group" style="position: relative;">
+                    <input placeholder="Пошук" name="q" class="search-field">
+                    <!-- Кнопка поиска заменена на ссылку -->
+                    <a class="search-button" href="#" onclick="document.getElementById('search-form').submit(); return false;"></a>
+                </div>
+            </form>
+        </div>
+          
           <!-- /.search-area --> 
           <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
         <!-- /.top-search-holder -->
@@ -124,8 +123,8 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="dropdown"> <a href="#"  class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Deals</a> 
-                 <ul class="dropdown-menu pages">
+                <li class="dropdown"> <a href="{% url "index:shop" %}">Магазин</a> 
+                 {% comment %} <ul class="dropdown-menu pages">
                     <li>
                       <div class="yamm-content">
                         <div class="row">
@@ -138,11 +137,11 @@
                               </div>
                               </div>
                               </li>
-                              </ul>
+                              </ul> {% endcomment %}
                 
                 </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Coupons</a> 
-                <ul class="dropdown-menu pages">
+                <li class="dropdown"> <a href="{% url "blog:blog" %}" >Блог</a> 
+                {% comment %} <ul class="dropdown-menu pages">
                     <li>
                       <div class="yamm-content">
                         <div class="row">
@@ -155,8 +154,8 @@
                               </div>
                               </div>
                               </li>
-                              </ul>
-                </li>
+                              </ul> {% endcomment %}
+                {% comment %} </li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Stores</a> 
                 <ul class="dropdown-menu pages">
                     <li>
@@ -172,30 +171,30 @@
                               </div>
                               </li>
                               </ul>
-                </li>
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
+                </li> {% endcomment %}
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">FAQ</a>
                   <ul class="dropdown-menu pages">
                     <li>
                       <div class="yamm-content">
                         <div class="row">
                           <div class="col-xs-12 col-menu">
                             <ul class="links">
-                              <li><a href="{% url "index:home" %}">Home</a></li>
-                              <li><a href="{% url "index:shop" %}">Shop</a></li>
-                                 <li><a href="{% url "carts:user_cart" %}">Shopping Cart Summary</a></li>
-                              <li><a href="checkout.html">Checkout</a></li>
-                              <li><a href="{% url "blog:blog" %}">Blog</a></li>
+                              {% comment %} <li><a href="{% url "index:home" %}">Головна</a></li> {% endcomment %}
+                              {% comment %} <li><a href="{% url "index:shop" %}">Магазин</a></li> {% endcomment %}
+                                 {% comment %} <li><a href="{% url "carts:user_cart" %}">Кошик</a></li> {% endcomment %}
+                              {% comment %} <li><a href="checkout.html">Checkout</a></li> {% endcomment %}
+                              {% comment %} <li><a href="{% url "blog:blog" %}">Блог</a></li> {% endcomment %}
                               {% comment %} <li><a href="{% url "blog:blog_details" %}">Blog Detail</a></li> {% endcomment %}
-                              <li><a href="{% url "info:contact" %}">Contact</a></li>
-                              <li><a href="{% url "users:login" %}">Sign In</a></li>
-                              <li><a href="{% url "users:registration" %}">Sign Up</a></li>
-                              <li><a href="my-wishlist.html">Wishlist</a></li>
-                              <li><a href="{% url "info:terms" %}">Terms and Condition</a></li>
-                              <li><a href="track-orders.html">Track Orders</a></li>
-                              <li><a href="product-comparison.html">Product-Comparison</a></li>
+                              <li><a href="{% url "info:contact" %}">Контакти</a></li>
+                              {% comment %} <li><a href="my-wishlist.html">Wishlist</a></li> {% endcomment %}
+                              <li><a href="{% url "info:terms" %}">Умови використання</a></li>
+                              {% comment %} <li><a href="track-orders.html">Track Orders</a></li> {% endcomment %}
+                              {% comment %} <li><a href="product-comparison.html">Product-Comparison</a></li> {% endcomment %}
                               <li><a href="{% url "info:faq" %}">FAQ</a></li>
-                              <li><a href="404.html">404</a></li>
-                              <li><a href="{% url "users:logout" %}">logout</a></li>
+                              {% comment %} <li><a href="{% url "users:login" %}">Авторизація</a></li> {% endcomment %}
+                              {% comment %} <li><a href="{% url "users:registration" %}">Реєстрація</a></li> {% endcomment %}
+                              {% comment %} <li><a href="404.html">404</a></li> {% endcomment %}
+                              {% comment %} <li><a href="{% url "users:logout" %}">Вихід</a></li> {% endcomment %}
                             </ul>
                           </div>
                         </div>
@@ -288,22 +287,21 @@
       <div class="row">
      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
           <div class="module-heading">
-            <h4 class="module-title">Help and Support</h4>
+            <h4 class="module-title">Допомога і підтримка</h4>
           </div>
           <!-- /.module-heading -->
           
           <div class="module-body">
             <ul class='list-unstyled'>
-              <li class="first"><a href="#" title="Contact us">Term of Use</a></li>
-              <li><a href="#" title="About us">Search Terms</a></li>
-              <li><a href="#" title="faq">Store Location</a></li>
-              <li><a href="#" title="Popular Searches">Orders and Returns</a></li>
-              <li class="last"><a href="#" title="Where is my order?">Deliveries</a></li>
+              <li class="first"><a href="{% url "info:terms" %}" title="Contact us">Умови користування</a></li>
+              <li><a href="{% url "info:faq" %}" title="faq">FAQ</a></li>
+              <li><a href="{% url "info:contact" %}" title="faq">Контакти</a></li>
+              
             </ul>
           </div>
           <!-- /.module-body --> 
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+        {% comment %} <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
           <div class="module-heading">
             <h4 class="module-title">Customer Service</h4>
           </div>
@@ -357,14 +355,14 @@
             </ul>
           </div>
           <!-- /.module-body --> 
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
   </div>
   <div class="copyright-bar white-bg">
     <div class="container">
       <div class="col-xs-12 col-sm-7 col-md-12 col-lg-7 del-info">
-        We have our very own fleet of delivery vans. Your order will be packed with care at our warehouse and delivered right to your door by our friendly DealDots team.
+        У нас є власний автопарк фургонів. Ваше замовлення буде ретельно запаковано на нашому складі та доставлено прямо до ваших дверей нашою дружньою командою DealDots.
       </div>
       
       <div class="col-xs-12 col-sm-5 col-md-12 col-lg-5 no-padding">
@@ -420,6 +418,8 @@
 <!-- For demo purposes – can be removed on production : End --> 
 
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="{% static "js/jquery-1.11.1.min.js" %}"></script> 
 <script src="{% static "js/bootstrap.min.js" %}"></script> 
 <script src="{% static "js/bootstrap-hover-dropdown.min.js" %}"></script> 

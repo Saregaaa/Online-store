@@ -9,8 +9,8 @@
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="#">Home</a></li>
-				<li class='active'>Shopping Cart</li>
+				<li><a href="{% url "index:home" %}">Головна</a></li>
+				<li class='active'>Кошик</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
@@ -29,13 +29,13 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th class="cart-romove item">Remove</th>
-										<th class="cart-description item">Image</th>
-										<th class="cart-product-name item">Product Name</th>
+										<th class="cart-romove item">Видалити</th>
+										<th class="cart-description item">Зображення</th>
+										<th class="cart-product-name item">Назва</th>
 										{% comment %} <th class="cart-edit item">Edit</th> {% endcomment %}
-										<th class="cart-qty item">Quantity</th>
-										<th class="cart-sub-total item">Subtotal</th>
-										<th class="cart-total last-item">Grandtotal</th>
+										<th class="cart-qty item">Кількість</th>
+										<th class="cart-sub-total item">Вартість</th>
+										<th class="cart-total last-item">Всього</th>
 									</tr>
 								</thead><!-- /thead -->
 								
@@ -110,8 +110,8 @@
 					<td colspan="7">
 						<div class="shopping-cart-btn">
 							<span class="">
-								<a href="#" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-								<a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
+								<a href="{% url "index:shop" %}" class="btn btn-upper btn-primary outer-left-xs">Повернутись до покупок</a>
+								{% comment %} <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a> {% endcomment %}
 							</span>
 						</div><!-- /.shopping-cart-btn -->
 					</td>
@@ -124,39 +124,49 @@
 		<thead>
 			<tr>
 				<th>
-					<span class="estimate-title">Estimate shipping and tax</span>
-					<p>Enter your destination to get shipping and tax.</p>
+					<span class="estimate-title">Заповніть адресу</span>
+					{% comment %} <p>Enter your destination to get shipping and tax.</p> {% endcomment %}
 				</th>
 			</tr>
 		</thead><!-- /thead -->
 		<tbody>
 				<tr>
 					<td>
-						{% comment %} <form action="{% url "index:user_cart" %}"></form> {% endcomment %}
-						<div class="form-group">
-							<label class="info-title control-label">Місто <span>*</span></label>
-							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
-							
-						</div>
-						<div class="form-group">
-							<label class="info-title control-label">Адреса <span>*</span></label>
-							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
-							
-						</div>
-						<div class="form-group">
-							<label class="info-title control-label">Поштовий код</label>
-							<input type="text" class="form-control unicase-form-control text-input" placeholder="">
-						</div>
-						<div class="pull-right">
-							<button type="submit" class="btn-upper btn btn-primary">GET A QOUTE</button>
-						</div>
+						<form action="{% url "carts:create_order" %}" method="post">
+								{% csrf_token %}
+							<div class="form-group">
+								<label class="info-title control-label" for="id_city">Місто <span>*</span></label>
+								<input type="text" class="form-control unicase-form-control text-input" name="city" id="id_city" placeholder="">
+								
+							</div>
+							<div class="form-group">
+								<label class="info-title control-label" for="id_address">Адреса <span>*</span></label>
+								<input type="text" class="form-control unicase-form-control text-input" name="address" id="id_address" placeholder="">
+								
+							</div>
+							<div class="form-group">
+								<label class="info-title control-label" for="id_postal_code">Поштовий код</label>
+								<input type="text" class="form-control unicase-form-control text-input" name="postal_code" id="id_postal_code" placeholder="">
+							</div>
+							<div class="pull-right">
+								{% if messages %}
+									<ul class="messages">
+										{% for message in messages %}
+											<li class="alert alert-{{ message.tags }}">{{ message }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+								<button type="submit" class="btn-upper btn btn-primary">ЗРОБИТИ ЗАМОВЛЕННЯ</button>
+							</div>
+						</form>
+						
 					</td>
 				</tr>
 		</tbody>
 	</table>
 </div><!-- /.estimate-ship-tax -->
 
-<div class="col-md-4 col-sm-12 estimate-ship-tax">
+{% comment %} <div class="col-md-4 col-sm-12 estimate-ship-tax">
 	<table class="table">
 		<thead>
 			<tr>
@@ -179,7 +189,7 @@
 				</tr>
 		</tbody><!-- /tbody -->
 	</table><!-- /table -->
-</div><!-- /.estimate-ship-tax -->
+</div><!-- /.estimate-ship-tax --> {% endcomment %}
 
 <div class="col-md-4 col-sm-12 cart-shopping-total">
 	<table class="table">
@@ -187,15 +197,15 @@
 			<tr>
 				<th>
 					<div class="cart-sub-total">
-						Subtotal<span class="inner-left-md">${{ carts.total_price }}</span>
+						Всього:<span class="inner-left-md">${{ carts.total_price }}</span>
 					</div>
-					<div class="cart-grand-total">
+					{% comment %} <div class="cart-grand-total">
 						Grand Total<span class="inner-left-md">${{ carts.total_price }}</span>
-					</div>
+					</div> {% endcomment %}
 				</th>
 			</tr>
 		</thead><!-- /thead -->
-		<tbody>
+		{% comment %} <tbody>
 				<tr>
 					<td>
 						<div class="cart-checkout-btn pull-right">
@@ -204,7 +214,7 @@
 						</div>
 					</td>
 				</tr>
-		</tbody><!-- /tbody -->
+		</tbody><!-- /tbody --> {% endcomment %}
 	</table><!-- /table -->
 </div><!-- /.cart-shopping-total -->			</div><!-- /.shopping-cart -->
 </div>

@@ -3,15 +3,15 @@
 {% load products_tags %}
 
 {% block content %}
-{% comment %} <link rel="stylesheet" href="{% static "css/product.css" %}"> {% endcomment %}
+
 
 <!-- /.breadcrumb -->
 <div class="breadcrumb">
     <div class="container">
       <div class="breadcrumb-inner">
         <ul class="list-inline list-unstyled">
-          <li><a href="#">Home</a></li>
-          <li class="active">Handbags</li>
+          <li><a href="{% url "index:home" %}">Головна</a></li>
+          <li class="active">Магазин</li>
         </ul>
       </div>
       <!-- /.breadcrumb-inner --> 
@@ -23,9 +23,10 @@
     
       <div class='row'>
               <!-- ============================================== SIDEBAR ============================================== -->
-        <div class="col-md-3 sidebar"> 
+        <div class="col-md-3 sidebar "> 
           <!-- ================================== TOP NAVIGATION ================================== -->
-          <div class="side-menu side-menu-inner animate-dropdown outer-bottom-xs">
+          
+          <div class="side-menu side-menu-inner animate-dropdown outer-bottom-xs" style="margin-top: 0px;">
             <div class="head">Категорії</div>
             <nav class="yamm megamenu-horizontal">
               <ul class="nav">
@@ -67,7 +68,7 @@
               <!-- ============================================== SIDEBAR CATEGORY : END ============================================== --> 
               
               <!-- ============================================== PRICE SILDER============================================== -->
-              <div class="sidebar-widget wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; margin-top: 30px">
+              {% comment %} <div class="sidebar-widget wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; margin-top: 30px">
                 <div class="widget-header">
                   <h4 class="widget-title">Price Slider</h4>
                 </div>
@@ -79,12 +80,12 @@
                   <!-- /.price-range-holder --> 
                   <a href="#" class="lnk btn btn-primary">Show Now</a> </div>
                 <!-- /.sidebar-widget-body --> 
-              </div>
+              </div> {% endcomment %}
               <!-- /.sidebar-widget --> 
               <!-- ============================================== PRICE SILDER : END ============================================== --> 
 
               <!-- ============================================== COMPARE============================================== -->
-              <div class="sidebar-widget wow fadeInUp outer-top-vs animated" style="visibility: visible; animation-name: fadeInUp;">
+              {% comment %} <div class="sidebar-widget wow fadeInUp outer-top-vs animated" style="visibility: visible; animation-name: fadeInUp;">
                 <h3 class="section-title">Compare products</h3>
                 <div class="sidebar-widget-body">
                   <div class="compare-report">
@@ -93,12 +94,12 @@
                   <!-- /.compare-report --> 
                 </div>
                 <!-- /.sidebar-widget-body --> 
-              </div>
+              </div> {% endcomment %}
               <!-- /.sidebar-widget --> 
               <!-- ============================================== COMPARE: END ============================================== --> 
               <!-- ============================================== PRODUCT TAGS ============================================== -->
               
-            <!----------- Testimonials------------->
+            {% comment %} <!----------- Testimonials------------->
               <div class="sidebar-widget  wow fadeInUp outer-top-vs  animated" style="visibility: visible; animation-name: fadeInUp;">
                 <div id="advertisement" class="advertisement owl-carousel owl-theme" style="opacity: 1; display: block;">
                   <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 1338px; left: 0px; display: block;"><div class="owl-item" style="width: 223px;"><div class="item">
@@ -106,16 +107,31 @@
                     <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
                     <div class="clients_author">John Doe <span>Abc Company</span> </div>
                     <!-- /.container-fluid --> 
-                  </div></div><div class="owl-item" style="width: 223px;"><div class="item">
-                    <div class="avatar"><img src="{% static "images/testimonials/member3.png" %}" alt="Image"></div>
-                    <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                    <div class="clients_author">Stephen Doe <span>Xperia Designs</span> </div>
-                  </div></div><div class="owl-item" style="width: 223px;"><div class="item">
-                    <div class="avatar"><img src="{% static "images/testimonials/member2.png" %}" alt="Image"></div>
-                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                    <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span> </div>
+                  </div>
+                </div>
+                  <div class="owl-item" style="width: 223px;">
+                    <div class="item">
+                    <div class="avatar"><img src="{% static "images/testimonials/member3.png" %}" alt="Image">
+                    </div>
+                    <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em>
+                    </div>
+                    <div class="clients_author">Stephen Doe <span>Xperia Designs</span> 
+                    </div>
+                  </div>
+                </div>
+                <div class="owl-item" style="width: 223px;">
+                  <div class="item">
+                    <div class="avatar"><img src="{% static "images/testimonials/member2.png" %}" alt="Image">
+                    </div>
+                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em>
+                    </div>
+                    <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span> 
+                    </div> 
                     <!-- /.container-fluid --> 
-                  </div></div></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
                   <!-- /.item -->
                   
                   
@@ -126,7 +142,7 @@
                   
                 <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div></div></div>
                 <!-- /.owl-carousel --> 
-              </div>
+              </div> {% endcomment %}
               
               <!-- ============================================== Testimonials: END ============================================== -->
               
@@ -166,7 +182,7 @@
                 <div class="filter-tabs">
                   <ul id="filter-tabs" class="nav nav-tabs nav-tab-box nav-tab-fa-icon">
                     <li class="active"> <a data-toggle="tab" href="#grid-container"><i class="icon fa fa-th-large"></i>Grid</a> </li>
-                    <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-bars"></i>List</a></li>
+                    {% comment %} <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-bars"></i>List</a></li> {% endcomment %}
                   </ul>
                 </div>
                 <!-- /.filter-tabs --> 
@@ -174,10 +190,12 @@
               <!-- /.col -->
               <div class="col col-sm-12 col-md-5 col-lg-5 hidden-sm">
                 
-                <form method="get" action="{% if request.GET.q %}{% url "index:search" %}{% else %}{% url "index:shop_subcategory" slug_url %}{% endif %}" id="filter-form">
+                <form method="get" action="{% if request.GET.q %}{% url "index:search" %}{% elif slug_url %}{% url "index:shop_subcategory" slug_url %}{% else %}{% url "index:shop" %}{% endif %}" id="filter-form">
+                {% comment %} <form method="get" action="{% if request.GET.q %}{% url "index:search" %}{% else %}{% url "index:shop_subcategory" slug_url %}{% endif %}" id="filter-form"> {% endcomment %}
                   <div class="col col-sm-6 col-md-12 col-lg-7 no-padding">
                       <div class="lbl-cnt">
-                          <label for="order_by" class="lbl">Sort by</label>
+                          {% comment %} <label for="order_by" class="lbl">Сортування</label> {% endcomment %}
+                          
                           <div class="fld inline">
                             {% if request.GET.q %}
                             <input type="hidden" name="q" value="{{ request.GET.q }}">
@@ -195,7 +213,7 @@
               
                   <div class="col col-sm-6 col-md-12 col-lg-5 no-padding">
                       <div class="lbl-cnt">
-                          <label for="on_sale" class="lbl">On Sale</label>
+                          <label for="on_sale" class="lbl">Знижка</label>
                           <input type="checkbox" id="on_sale" name="on_sale" value="1" onchange="document.getElementById('filter-form').submit();" {% if on_sale %}checked{% endif %}>
                       </div>
                   </div>
@@ -278,7 +296,7 @@
                   <!-- /.lbl-cnt --> 
                 </div> {% endcomment %}
                 <!-- /.col -->
-                <div class="col col-sm-6 col-md-5 col-lg-5 no-padding hidden-sm hidden-md">
+                {% comment %} <div class="col col-sm-6 col-md-5 col-lg-5 no-padding hidden-sm hidden-md">
                   <div class="lbl-cnt"> <span class="lbl">Show</span>
                     <div class="fld inline">
                       <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
@@ -300,7 +318,7 @@
                     <!-- /.fld --> 
                   </div>
                   <!-- /.lbl-cnt --> 
-                </div>
+                </div> {% endcomment %}
                 <!-- /.col --> 
               </div>
               <!-- /.col -->
@@ -377,7 +395,20 @@
                             <h3 class="name">
                               <a href="{% url "index:product_detail" product.slug %}">{{ product.name|truncatechars:50 }}</a>
                             </h3>
-                            <div class="rating rateit-small"></div>
+                            {% comment %} <div class="rating">
+                              {% for i in "12345" %}
+                                  <span class="fa fa-star {% if i <= product.average_rating %}checked{% endif %}"></span>
+                              {% endfor %}
+                          </div> {% endcomment %}
+                          
+                          <div class="product-rating">
+                            <p>Середній рейтинг:</p>
+                            <div class="rateit" data-rateit-value="{{ product.average_rating }}" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                        </div>
+                        
+                        
+
+                            {% comment %} <div class="rating rateit-small"></div> {% endcomment %}
                             <div class="description"></div>
                             <div class="product-price"> 
                               <span class="price"> 
@@ -393,16 +424,16 @@
                           <div class="cart clearfix animate-effect">
                             <div class="action">
 
-                              <form method="POST" action="{% url 'carts:cart_add' product.slug %}">
-                              <ul class="list-unstyled">
+                              <form method="POST" action="{% url 'carts:cart_add' product.slug %}" >
+                              <ul class="list-unstyled ">
                                   {% csrf_token %}
-                                <li class="add-cart-button btn-group">
+                                <li class="add-cart-button btn-group" >
                                     <a href="{% url 'carts:cart_add' product.slug %}" class="btn btn-primary cart-btn " title="Add to cart" style="display: inline-block;">
                                         <i class="fa fa-shopping-cart"></i>
                                     </a>
                                 </li>
                               </form>
-                                <li class="lnk wishlist">
+                                 <li class="lnk wishlist">
                                     <a class="add-to-cart" href="deals-detail.html" title="Wishlist">
                                         <i class="icon fa fa-heart"></i>
                                     </a>
@@ -411,7 +442,7 @@
                                     <a class="add-to-cart" href="deals-detail.html" title="Compare">
                                         <i class="fa fa-signal"></i>
                                     </a>
-                                </li>
+                                </li> 
                             </ul>
                             
                               {% comment %} <ul class="list-unstyled">
@@ -448,7 +479,7 @@
               </div>
               <!-- /.tab-pane -->
               
-              <div class="tab-pane "  id="list-container">
+              {% comment %} <div class="tab-pane "  id="list-container">
                 <div class="category-product">
                   <div class="category-product-inner">
                     <div class="products">
@@ -509,7 +540,7 @@
                   
                 </div>
                 <!-- /.category-product --> 
-              </div>
+              </div> {% endcomment %}
               <!-- /.tab-pane #list-container --> 
             </div>
             <!-- /.tab-content -->
@@ -561,6 +592,13 @@
         <!-- /.col --> 
       </div>
       </div>
+      <script>
+        $(function() {
+            // Инициализация RateIt для каждого элемента с классом 'rateit'
+            $('.rateit').rateit();
+        });
+    </script>
+    
 {% endblock content %}
 
 

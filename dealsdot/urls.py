@@ -19,6 +19,10 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from dealsdot import settings
 
+from dealsdot.settings import DEBUG
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +33,11 @@ urlpatterns = [
     path('info/', include('info.urls', namespace='info')),
 ]
 
+if DEBUG:
+    urlpatterns +=[
+        path('__debug__/', include('debug_toolbar.urls')),
+    ]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -6,8 +6,8 @@
     <div class="container">
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Blog</li>
+                    <li><a href="{% url "index:home" %}">Головна</a></li>
+                    <li class="active">Блог</li>
                 </ul>
             </div><!-- /.breadcrumb-inner -->
             </div>
@@ -26,7 +26,7 @@
                             </div>
                             <h1><a href="{% url "blog:blog_details" post.slug %}">{{ post.title }}</a></h1>
                             <span class="author">{{ post.autor }}</span>
-                            <span class="review">6 Comments</span>
+                            <span class="review">Коментарів: {{ post.blogcomment_set.count }}</span>
                             <span class="date-time">{{ post.created_at|date:"d.m.Y" }}</span>
                             <p>{{ post.content |truncatechars:500 }}</p>
                             <a href="{% url "blog:blog_details" post.slug %}" class="btn btn-upper btn-primary read-more">Читати далі</a>
@@ -201,7 +201,7 @@
             </div><!-- /.accordion -->
         </div><!-- /.sidebar-widget-body -->
     </div><!-- /.sidebar-widget --> {% endcomment %}
-        <!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
+        {% comment %} <!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
         <h3 class="section-title">Tab Widget</h3>
         <ul class="nav nav-tabs">
           <li class="active"><a href="#popular" data-toggle="tab">popular post</a></li>
@@ -245,7 +245,7 @@
                 
             </div>
         </div>
-        </div>
+        </div> {% endcomment %}
     </div>
                            
                 </div>

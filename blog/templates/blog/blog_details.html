@@ -6,8 +6,8 @@
 <div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="#">Home</a></li>
-				<li class="active">Blog Details</li>
+				<li><a href="{% url "index:home" %}">Головна</a></li>
+				<li class="active">Блог</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div>
@@ -248,7 +248,7 @@
 	    </div><!-- /.accordion -->
 	</div><!-- /.sidebar-widget-body -->
 </div><!-- /.sidebar-widget --> {% endcomment %}
-	<!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
+	{% comment %} <!-- ============================================== CATEGORY : END ============================================== -->						<div class="sidebar-widget outer-bottom-xs wow fadeInUp">
     <h3 class="section-title">Tab Widget</h3>
 	<ul class="nav nav-tabs">
 	  <li class="active"><a href="#popular" data-toggle="tab">popular post</a></li>
@@ -293,7 +293,7 @@
 		</div>
 	</div>
 	</div>
-</div>
+</div> {% endcomment %}
 		
             </div>
             

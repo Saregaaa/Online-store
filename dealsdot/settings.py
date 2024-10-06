@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+from django.conf.global_settings import INTERNAL_IPS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +28,9 @@ SECRET_KEY = 'django-insecure-01n#2_uo$h39xmkmo5tg-=ikrk3dx)2$#!=!b^g8x0z89l(gdt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
+
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
+    
+    'debug_toolbar',
 
     'index',
     'blog',
@@ -54,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'dealsdot.urls'
@@ -87,6 +97,7 @@ DATABASES = {
         'NAME':'dealsdot_db',
         'USER':'postgres',
         'PASSWORD':'123',
+        # 'HOST':'db',
         'HOST':'localhost',
         'PORT':'5432',
     }
@@ -143,4 +154,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

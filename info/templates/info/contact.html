@@ -16,47 +16,48 @@
 				</div>
 				<div class="col-md-8 contact-form">
 	<div class="col-md-12 contact-title">
-		<h4>Contact Form</h4>
+		<h4>Контактна форма</h4>
 	</div>
+	<form class="register-form" role="form" action="{% url "info:contact" %}" method="post">
+		{% csrf_token %}
 	<div class="col-md-4 ">
-		<form class="register-form" role="form">
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputName">Your Name <span>*</span></label>
-		    <input type="email" class="form-control text-input" id="exampleInputName" placeholder="">
+		    <label class="info-title" for="id_name">Ім'я <span>*</span></label>
+		    <input type="text" class="form-control text-input" name="name" id="id_name" placeholder="">
 		  </div>
-		</form>
+		{% comment %} </form> {% endcomment %}
 	</div>
 	<div class="col-md-4">
-		<form class="register-form" role="form">
+		{% comment %} <form class="register-form" role="form"> {% endcomment %}
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-		    <input type="email" class="form-control text-input" id="exampleInputEmail1" placeholder="">
+		    <label class="info-title" for="id_email">Email <span>*</span></label>
+		    <input type="email" class="form-control text-input" name="email" id="id_email" placeholder="">
 		  </div>
-		</form>
+		{% comment %} </form> {% endcomment %}
 	</div>
 	<div class="col-md-4">
-		<form class="register-form" role="form">
+		{% comment %} <form class="register-form" role="form"> {% endcomment %}
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputTitle">Title <span>*</span></label>
-		    <input type="email" class="form-control text-input" id="exampleInputTitle" placeholder="Title">
+		    <label class="info-title" for="id_title">Заголовок <span>*</span></label>
+		    <input type="text" class="form-control text-input" name="title" id="id_title" placeholder="">
 		  </div>
-		</form>
+		{% comment %} </form> {% endcomment %}
 	</div>
 	<div class="col-md-12">
-		<form class="register-form" role="form">
+		{% comment %} <form class="register-form" role="form"> {% endcomment %}
 			<div class="form-group">
-		    <label class="info-title" for="exampleInputComments">Your Comments <span>*</span></label>
-		    <textarea class="form-control unicase-form-control" id="exampleInputComments"></textarea>
+		    <label class="info-title" for="id_comment">Ваше повідомлення <span>*</span></label>
+		    <textarea class="form-control unicase-form-control" name="comment" id="id_comment"></textarea>
 		  </div>
-		</form>
-	</div>
-	<div class="col-md-12 outer-bottom-small m-t-20">
-		<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Send Message</button>
-	</div>
+		</div>
+		<div class="col-md-12 outer-bottom-small m-t-20">
+			<button type="submit" class="btn-upper btn btn-primary checkout-page-button">ЗАЛИШИТИ ПОВІДОМЛЕННЯ</button>
+		</div>
+	</form>
 </div>
 <div class="col-md-4 contact-info">
 	<div class="contact-title">
-		<h4>Information</h4>
+		<h4>Інформація</h4>
 	</div>
 	<div class="clearfix address">
 		<span class="contact-i"><i class="fa fa-map-marker"></i></span>
@@ -68,7 +69,7 @@
 	</div>
 	<div class="clearfix email">
 		<span class="contact-i"><i class="fa fa-envelope"></i></span>
-		<span class="contact-span"><a href="#">dealdots@themesground.com</a></span>
+		<span class="contact-span"><a href="#">dealdots@gmail.com</a></span>
 	</div>
 </div>			</div>
 </div>

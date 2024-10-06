@@ -6,8 +6,8 @@
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
-				<li class='active'>Login</li>
+				<li><a href="{% url "index:home" %}">Головна</a></li>
+				<li class='active'>Реєстрація</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
@@ -23,12 +23,12 @@
 
 <!-- create a new account -->
 <div class="col-md-6 col-sm-6 create-new-account">
-	<h4 class="checkout-subtitle">Create a new account</h4>
-	<p class="text title-tag-line">Create your new account.</p>
+	<h4 class="checkout-subtitle">Створити новий обліковий запис</h4>
+	<p class="text title-tag-line">Створити ваш новий аккаунт.</p>
 	<form class="register-form outer-top-xs" role="form" action="{% url "users:registration" %}" method="post">
 		{% csrf_token %}
 		<div class="form-group">
-	    	<label class="info-title" for="id_email">Email Address <span>*</span></label>
+	    	<label class="info-title" for="id_email">Email <span>*</span></label>
 	    	<input type="email" class="form-control unicase-form-control text-input" id="id_email" 
 			value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
 			name="email">
@@ -47,7 +47,7 @@
 			
 		</div>
         <div class="form-group">
-		    <label class="info-title" for="id_phone">Phone Number <span>*</span></label>
+		    <label class="info-title" for="id_phone">Телефонний номер <span>*</span></label>
 		    <input type="text" class="form-control unicase-form-control text-input" id="id_phone" 
 			value="{% if form.phone.value %}{{ form.phone.value }}{% endif %}"
 			name="phone">
@@ -56,7 +56,7 @@
 			{% endif %}
 		</div>
         <div class="form-group">
-		    <label class="info-title" for="id_password1">Password <span>*</span></label>
+		    <label class="info-title" for="id_password1">Пароль <span>*</span></label>
 		    <input type="password" class="form-control unicase-form-control text-input" id="id_password1" 
 			value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
 			name="password1">
@@ -65,7 +65,7 @@
 			{% endif %}
 		</div>
          <div class="form-group">
-		    <label class="info-title" for="id_password2">Confirm Password <span>*</span></label>
+		    <label class="info-title" for="id_password2">Повторити пароль <span>*</span></label>
 		    <input type="password" class="form-control unicase-form-control text-input" id="id_password2" 
 			value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
 			name="password2">
@@ -73,7 +73,7 @@
 			<div class="alert alert-danger alert-dismissible fade show">{{forms.password2.errors}}</div>
 			{% endif %}
 		</div>
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Зареєструватись</button>
 	</form>
 	
 	

@@ -1,5 +1,6 @@
 from carts.models import Cart
 
+
 # def get_user_carts(request):
 #     if request.user.is_authenticated:
 #         return Cart.objects.filter(user=request.user)
@@ -21,6 +22,9 @@ from carts.models import Cart
 #     print(f"Anonymous user, session key: {request.session.session_key}, carts count: {carts.count()}")
 #     return carts
 
+import logging
+
+logger = logging.getLogger(__name__)
 def get_user_carts(request):
     if request.user.is_authenticated:
         carts = Cart.objects.filter(user=request.user)
@@ -35,6 +39,10 @@ def get_user_carts(request):
         
         # Получаем корзину по session_key
         carts = Cart.objects.filter(session_key=session_key)
+
+        logger.info(f"User {request.user.username if request.user.is_authenticated else 'Anonymous'}, "
+                f"session key: {request.session.session_key}, carts count: {carts.count()}")
+
 
     return carts
 

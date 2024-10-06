@@ -43,8 +43,8 @@ class Cart(models.Model):
 class Order(models.Model):
 
     user = models.ForeignKey("users.User", on_delete=models.CASCADE, verbose_name="Користувач")
-    cart = models.ForeignKey(to=Cart, on_delete=models.CASCADE, verbose_name="Замовлення")
-    sity = models.CharField(max_length=50, verbose_name="Місто")
+    carts = models.ManyToManyField(Cart, verbose_name="Замовлення")
+    city = models.CharField(max_length=50, verbose_name="Місто")
     address = models.CharField(max_length=150, verbose_name="Адреса") 
     postal_code = models.CharField(max_length=10, verbose_name="Поштовий індекс")
     create_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
@@ -55,4 +55,5 @@ class Order(models.Model):
         verbose_name_plural = 'Замовлення'
 
     def __str__(self):
-        return f"Замовлення {self.user.username} | Товар {self.cart.product.name} | Кількість - {self.cart.quantity}"
+        return f"Замовлення {self.user.username} | №{self.id} | Дата створення: {self.create_at}"
+    

@@ -16,9 +16,11 @@ def blog(request):
         posts = Blog.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query)
         ).order_by('-created_at')
+        
     else:
         # Если запроса нет, показываем все посты
         posts = Blog.objects.order_by('-created_at')
+        
     
     paginator = Paginator(posts, 6)  
     current_page = paginator.page(int(page))
@@ -26,6 +28,7 @@ def blog(request):
     context = {
         'posts': current_page,
         'query': query,
+        
     }
     return render(request, 'blog/blog.html', context)
 

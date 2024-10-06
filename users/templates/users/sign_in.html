@@ -6,8 +6,8 @@
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
-				<li class='active'>Login</li>
+				<li><a href="{% url "index:home" %}">Головна</a></li>
+				<li class='active'>Авторизація</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
 	</div><!-- /.container -->
@@ -21,8 +21,8 @@
 			<div class="row">
 				<!-- Sign-in -->			
 <div class="col-md-6 col-sm-6 sign-in">
-	<h4 class="">Sign in</h4>
-	<p class="">Hello, Welcome to your account.</p>
+	<h4 class="">Авторизація</h4>
+	<p class="">Ласкаво просиво в ваш аккаунт.</p>
 	<div class="social-sign-in outer-top-xs">
 		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
 		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
@@ -31,20 +31,20 @@
 		{% csrf_token %}
 		
 		<div class="form-group">
-		    <label class="info-title" for="id_email">Email Address <span>*</span></label>
+		    <label class="info-title" for="id_email">Email <span>*</span></label>
 		    <input type="email" class="form-control unicase-form-control text-input" name="email" id="id_email" >
 		</div>
 		<div class="form-group">
-		    <label class="info-title" for="id_password">Password <span>*</span></label>
+		    <label class="info-title" for="id_password">Пароль <span>*</span></label>
 		    <input type="password" class="form-control unicase-form-control text-input" name="password" id="id_password" >
 		</div>
 		<div class="radio outer-xs">
 		  	<label>
 		    	{% comment %} <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Remember me! {% endcomment %}
 		  	</label>
-		  	<a href="#" class="forgot-password pull-right">Forgot your Password?</a>
+		  	<a href="#" class="forgot-password pull-right">Відновити пароль?</a>
 		</div>
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button> 
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Вхід</button> 
 	</form>					
 </div>
 <!-- Sign-in -->

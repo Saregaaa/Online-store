@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13  # Используем образ PostgreSQL версии 13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/  # Для сохранения данных базы данных
+    environment:
+      POSTGRES_DB: dealsdot_db  # Имя базы данных
+      POSTGRES_USER: postgres  # Пользователь базы данных
+      POSTGRES_PASSWORD: 123  # Пароль для базы данных
+    networks:
+      - webnet  # Подключаем к сети для взаимодействия с Django
+
+  web:
+    build: .  # Собираем контейнер на основе Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000  # Запускаем сервер Django
+    volumes:
+      - .:/app  # Монтируем директорию приложения
+    ports:
+      - "8000:8000"  # Пробрасываем порт 8000 для доступа к приложению
+    environment:
+      - DEBUG=True  # Включаем режим отладки
+      - DJANGO_DB_NAME=dealsdot_db  # Имя базы данных
+      - DJANGO_DB_USER=postgres  # Пользователь базы данных
+      - DJANGO_DB_PASSWORD=123  # Пароль базы данных
+      - DJANGO_DB_HOST=db  # Указываем хост как 'db', имя сервиса PostgreSQL
+    depends_on:
+      - db  # Указываем зависимость от контейнера PostgreSQL
+    networks:
+      - webnet  # Подключаем к сети
+
+networks:
+  webnet:  # Создаем сеть для взаимодействия сервисов
+
+volumes:
+  postgres_data:  # Определяем volume для хранения данных PostgreSQL
