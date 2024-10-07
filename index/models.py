@@ -72,9 +72,6 @@ class Products(models.Model):
     def __str__(self):
         return f'{self.name} Кількість - {self.quantity}'
 
-    # def get_absolute_url(self):
-    #     return reverse("catalog:product", kwargs={"product_slug": self.slug})
-    # Необхідний для створення посилання на конкретний товар
     
     def sell_price(self):
         if self.discount:

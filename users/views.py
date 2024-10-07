@@ -78,28 +78,3 @@ def logout(request):
     auth.logout(request)
     return redirect(reverse('users:login'))
     
-
-#     context = {
-#         'title': 'Sign In',
-#         'form': form,
-#     }
-#     return render(request, 'users/sign_in.html', context)
-
-# def sign_in(request):
-#     if request.method == 'POST':
-#         form = UserLoginForm(request.POST)
-#         if form.is_valid():
-#             email = request.POST['email']
-#             password = request.POST['password']
-#             user = auth.authenticate(email=email, password=password)
-#             if user:
-#                 auth.login(request, user)
-#                 return HttpResponseRedirect(reverse('index:home'))
-#     else:
-#         form = UserLoginForm()
-    
-#     context = {
-#         'title': 'Sign In',
-#         'form': form,
-#     }
-#     return render(request, 'users/sign_in.html', context)

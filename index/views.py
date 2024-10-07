@@ -30,59 +30,6 @@ def home(request, subcategory_slug=None):
     }
     return render(request, 'home.html', context)
 
-# def shop(request, subcategory_slug=None):
-#     page = request.GET.get('page', 1)
-#     on_sale = request.GET.get('on_sale', None)
-#     order_by = request.GET.get('order_by', None)
-#     query = request.GET.get('q', None)
-
-#     # Если слаг подкатегории передан, пытаемся получить подкатегорию
-#     subcategory = None
-#     if subcategory_slug:
-#         try:
-#             subcategory = Subcategory.objects.get(slug=subcategory_slug)
-#         except Subcategory.DoesNotExist:
-#             subcategory = None
-
-#     # Загружаем все категории с предзагрузкой подкатегорий
-#     categories = Categories.objects.prefetch_related('subcategories').all()
-
-#     # Если есть поисковый запрос, используем q_search
-#     if query:
-#         products = q_search(query)
-#     elif subcategory:
-#         # Если выбрана подкатегория, фильтруем продукты по ней
-#         products = Products.objects.filter(subcategory=subcategory)
-#     else:
-#         # Если подкатегория не выбрана, показываем все продукты
-#         products = Products.objects.all()
-
-#     # Фильтрация по скидке
-#     if on_sale:
-#         products = products.filter(discount__gt=0)
-
-#     # Сортировка товаров
-#     if order_by and order_by != "default":
-#         products = products.order_by(order_by) 
-
-
-
-#     paginator = Paginator(products, 6)
-#     current_page = paginator.page(int(page))
-
-
-#     context = {
-#         'categories': categories,
-#         'products': current_page,
-#         'subcategory': subcategory,
-#         'slug_url': subcategory_slug,
-#         'on_sale': on_sale,
-#         'order_by': order_by,
-#         'query': query,
-        
-        
-#     }
-#     return render(request, 'shop.html', context)
 
 def shop(request, subcategory_slug=None):
     page = request.GET.get('page', 1)
@@ -129,15 +76,6 @@ def shop(request, subcategory_slug=None):
     }
     return render(request, 'shop.html', context)
 
-
-    # # Добавляем расчет среднего рейтинга для каждого продукта
-    # products_with_ratings = []
-    # for product in products:
-    #     average_rating = product.average_rating()  # Используем метод из модели
-    #     products_with_ratings.append({
-    #         'product': product,
-    #         'average_rating': average_rating,
-    #     })
 
 def product_detail(request, product_slug):
     product = get_object_or_404(Products, slug=product_slug)

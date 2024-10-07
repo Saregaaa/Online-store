@@ -27,9 +27,3 @@ class UserRegistrationForm(UserCreationForm):
     password1 = forms.CharField()
     password2 = forms.CharField()
 
-# class UserLoginForm(AuthenticationForm):
-#     email = forms.CharField()
-#     password = forms.CharField()
-
-#     class Meta:
-#         model = User
